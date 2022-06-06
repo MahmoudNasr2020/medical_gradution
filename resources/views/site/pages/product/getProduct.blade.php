@@ -2,7 +2,7 @@
     $(document).on('click','.product-view',function (e) {
         e.preventDefault();
         let id = $(this).data('id');
-        let route = "{{ route('site.product.index') }}";
+        let route = "{{ route('site.product.getProduct') }}";
         $('#image_modal').attr('src','');
         $('#product_name').text('');
         $('#price').text('');

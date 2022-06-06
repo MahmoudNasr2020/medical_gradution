@@ -115,7 +115,22 @@
 
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingCartModal"><i class='bx bx-shopping-bag'></i><span>3</span></a>
+                                <a href="{{ route('site.cart.index') }}">
+                                    @php
+                                        use App\Models\Cart;
+                                        use Illuminate\Support\Facades\Auth;
+                                       if(Auth::check())
+                                       {
+                                            $count = Cart::where('user_id',Auth::user()->id)->get()->count();
+                                       }
+                                       else
+                                       {
+                                           $count = 0;
+                                       }
+                                    @endphp
+                                    <i class='bx bx-shopping-bag'></i>
+                                    <span id="cart_count" data-count="{{ $count }}">{{ $count }}</span>
+                                </a>
                             </div>
                         </div>
 

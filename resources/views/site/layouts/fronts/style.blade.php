@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="{{ asset('site/assets/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('site/assets/css/responsive.css') }}">
 <link rel="stylesheet" href="{{ asset('site/assets/css/rtl.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.min.css">
+
 <title>طبيات</title>
 @yield('style')
 <title>Drodo - Emergency Medical Supply HTML Template</title>

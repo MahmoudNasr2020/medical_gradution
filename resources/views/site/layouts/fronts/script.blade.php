@@ -15,4 +15,6 @@
 <script src="{{ asset('site/assets/js/contact-form-script.js') }}"></script>
 <script src="{{ asset('site/assets/js/ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('site/assets/js/main.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.min.js"></script>
+
 @yield('script')

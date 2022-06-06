@@ -14,7 +14,9 @@ class ProductSeeder extends Seeder
         $products = [
             [
                 'name'=>'Hand Sanitizer',
-                'description' => 'The stethoscope is an acoustic medical device, which is used to measure heartbeats',
+                'description' => 'وصف المنتج هو الكلمات والتعبيرات التسويقية التي يتم استخدامها بشكل منسق في شرح مزايا وخصائص المنتج وكافة المعلومات المرتبطة به.
+ويتضمن أي نموذج وصف منتج الفوائد والتأثير الإيجابي الذي يعود على المستهلك من شراء هذا المنتج وتأكيد الطلب عليه.
+هذه الكلمات والتعبيرات لابد من اختيارها بعناية فائقة حتى يمكنها تحقيق التأثير المطلوب على المتسوق بمجرد قرائتها، بحيث تدفعه دفعًا إلى الشراء دون تردد من خلال كتابة نص وصفي قصير.                                  ',
                 'price'=>'220',
                 'production_country'=>'Egypt',
                 'image'=>'https://www.insiderintelligence.com/static/74e5ac20957d7f85ee5915de3fb21211/737e2/apple-watch.png',
@@ -22,7 +24,9 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name'=>'Medical Mask',
-                'description' => 'The stethoscope is an acoustic medical device, which is used to measure heartbeats',
+                'description' => 'وصف المنتج هو الكلمات والتعبيرات التسويقية التي يتم استخدامها بشكل منسق في شرح مزايا وخصائص المنتج وكافة المعلومات المرتبطة به.
+ويتضمن أي نموذج وصف منتج الفوائد والتأثير الإيجابي الذي يعود على المستهلك من شراء هذا المنتج وتأكيد الطلب عليه.
+هذه الكلمات والتعبيرات لابد من اختيارها بعناية فائقة حتى يمكنها تحقيق التأثير المطلوب على المتسوق بمجرد قرائتها، بحيث تدفعه دفعًا إلى الشراء دون تردد من خلال كتابة نص وصفي قصير.',
                 'price'=>'20',
                 'production_country'=>'USA',
                 'image'=>'https://media.wired.com/photos/613a905fa755c6a4b550ba89/master/w_2400,h_1800,c_limit/Gear-Face-Mask.jpg',
@@ -30,7 +34,9 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name'=>'Medical Glass',
-                'description' => 'The stethoscope is an acoustic medical device, which is used to measure heartbeats',
+                'description' => 'وصف المنتج هو الكلمات والتعبيرات التسويقية التي يتم استخدامها بشكل منسق في شرح مزايا وخصائص المنتج وكافة المعلومات المرتبطة به.
+ويتضمن أي نموذج وصف منتج الفوائد والتأثير الإيجابي الذي يعود على المستهلك من شراء هذا المنتج وتأكيد الطلب عليه.
+هذه الكلمات والتعبيرات لابد من اختيارها بعناية فائقة حتى يمكنها تحقيق التأثير المطلوب على المتسوق بمجرد قرائتها، بحيث تدفعه دفعًا إلى الشراء دون تردد من خلال كتابة نص وصفي قصير.',
                 'price'=>'90',
                 'production_country'=>'USA',
                 'image'=>'https://www.financialexpress.com/wp-content/uploads/2022/04/health-insurance-3a-1.jpg',
@@ -38,7 +44,9 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name'=>'Isometric Equipment',
-                'description' => 'The stethoscope is an acoustic medical device, which is used to measure heartbeats',
+                'description' => 'وصف المنتج هو الكلمات والتعبيرات التسويقية التي يتم استخدامها بشكل منسق في شرح مزايا وخصائص المنتج وكافة المعلومات المرتبطة به.
+ويتضمن أي نموذج وصف منتج الفوائد والتأثير الإيجابي الذي يعود على المستهلك من شراء هذا المنتج وتأكيد الطلب عليه.
+هذه الكلمات والتعبيرات لابد من اختيارها بعناية فائقة حتى يمكنها تحقيق التأثير المطلوب على المتسوق بمجرد قرائتها، بحيث تدفعه دفعًا إلى الشراء دون تردد من خلال كتابة نص وصفي قصير.',
                 'price'=>'180',
                 'production_country'=>'USA',
                 'image'=>'https://media.wired.com/photos/59266fd87034dc5f91beb699/master/w_2560%2Cc_limit/Medical-Device-4x3-467546179.jpg',
@@ -46,7 +54,9 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name'=>'Blood Pressure Monitor',
-                'description' => 'The stethoscope is an acoustic medical device, which is used to measure heartbeats',
+                'description' => 'وصف المنتج هو الكلمات والتعبيرات التسويقية التي يتم استخدامها بشكل منسق في شرح مزايا وخصائص المنتج وكافة المعلومات المرتبطة به.
+ويتضمن أي نموذج وصف منتج الفوائد والتأثير الإيجابي الذي يعود على المستهلك من شراء هذا المنتج وتأكيد الطلب عليه.
+هذه الكلمات والتعبيرات لابد من اختيارها بعناية فائقة حتى يمكنها تحقيق التأثير المطلوب على المتسوق بمجرد قرائتها، بحيث تدفعه دفعًا إلى الشراء دون تردد من خلال كتابة نص وصفي قصير.',
                 'price'=>'320',
                 'production_country'=>'USA',
                 'image'=>'https://azb4fstg-cdn-endpoint.azureedge.net/mediacontainer/medialibraries/smithersb4f/industries/life%20science/medical%20device/thumbnail/medical-device-testing-644x350.png?ext=.png',
@@ -54,7 +64,9 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name'=>'New Microscope',
-                'description' => 'The stethoscope is an acoustic medical device, which is used to measure heartbeats',
+                'description' => 'وصف المنتج هو الكلمات والتعبيرات التسويقية التي يتم استخدامها بشكل منسق في شرح مزايا وخصائص المنتج وكافة المعلومات المرتبطة به.
+ويتضمن أي نموذج وصف منتج الفوائد والتأثير الإيجابي الذي يعود على المستهلك من شراء هذا المنتج وتأكيد الطلب عليه.
+هذه الكلمات والتعبيرات لابد من اختيارها بعناية فائقة حتى يمكنها تحقيق التأثير المطلوب على المتسوق بمجرد قرائتها، بحيث تدفعه دفعًا إلى الشراء دون تردد من خلال كتابة نص وصفي قصير.                                       ',
                 'price'=>'420',
                 'production_country'=>'USA',
                 'image'=>'https://www.jnjmedtech.com/sites/default/files/styles/crop_presets/public/2022-03/image%20%281%29-min.png?itok=2kAgZZwq',

@@ -60,8 +60,8 @@ Default CSS
 :root {
   --fontFamily: 'Open Sans', sans-serif;
   --fontFamily2: 'Hind Siliguri', sans-serif;
-  --mainColor: #2a96ff;
-  --optionalColor: #696969;
+  --mainColor: #470938;
+  --optionalColor: #5C94BD;
   --whiteColor: #ffffff;
   --blackColor: #111111;
   --fontSize: 15px;
@@ -7436,7 +7436,7 @@ Profile Authentication Area CSS
 }
 
 .login-form form button:hover {
-  background-color: var(--blackColor);
+  background-color: var(--optionalColor);
   color: var(--whiteColor);
 }
 

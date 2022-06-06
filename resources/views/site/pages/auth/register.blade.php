@@ -82,7 +82,7 @@
 
                                 <div class="form-group">
                                     <label>البريد الالكتروني</label>
-                                    <input type="email" class="form-control" name="email" required  placeholder="ادخل البريد الالكتروني">
+                                    <input type="email" class="form-control" name="email" required  placeholder="ادخل البريد الالكتروني" style="text-align: right;">
                                     @error('email')
                                     <div style="color: red;margin-top: 5px">{{ $message }}*</div>
                                     @enderror

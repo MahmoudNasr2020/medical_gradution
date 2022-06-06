@@ -74,7 +74,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>البريد</label>
-                                    <input type="text" class="form-control" name="email" placeholder="ادخل البريد الالكتروني">
+                                    <input type="text" class="form-control" name="email" placeholder="ادخل البريد الالكتروني" style="text-align: right;">
                                     @error('email')
                                     <div style="color: red;margin-top: 5px">{{ $message }}*</div>
                                     @enderror
