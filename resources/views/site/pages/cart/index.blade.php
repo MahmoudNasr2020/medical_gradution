@@ -34,17 +34,17 @@
                         @foreach($all_carts as $cart)
                             <tr class="cart-entity"  data-cart_id = "{{ $cart->id }}">
                                 <td class="product-thumbnail">
-                                    <a href="#">
+                                    <a href="{{ route('site.product.index',['id'=>$cart->product->id,'name'=>str_replace(' ','_',$cart->product->name)]) }}">
                                         <img src="{{ $cart->product->image }}" alt="item" style="height: 70px !important;">
                                     </a>
                                 </td>
 
                                 <td class="product-name">
-                                    <a href="#">{{ $cart->product->name }}</a>
+                                    <a href="{{ route('site.product.index',['id'=>$cart->product->id,'name'=>str_replace(' ','_',$cart->product->name)]) }}">{{ $cart->product->name }}</a>
                                 </td>
 
                                 <td class="product-price">
-                                    <span class="unit-amount">${{ $cart->product->price }}</span>
+                                    <span class="unit-amount">{{ $cart->product->price }}{{ $currency }}</span>
                                 </td>
 
                                 <td class="product-quantity">
@@ -58,7 +58,7 @@
                                 </td>
 
                                 <td class="product-subtotal">
-                                    <span class="subtotal-amount">${{ $cart->price }}</span>
+                                    <span class="subtotal-amount">{{ $cart->price }}{{ $currency }}</span>
 
                                     <a href="#" class="remove" data-cart_id="{{ $cart->id }}">
                                         <i class='bx bx-trash'></i>
@@ -85,18 +85,20 @@
                         <li>
                             السعر الفرعي
                             <span id="sub_price">
-                                ${{ \App\Models\Cart::where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->sum('price') }}
+                                    {{ \App\Models\Cart::where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->sum('price') }} جنيه مصري
                             </span>
                         </li>
 
                         <li>السعر الاجمالي
                             <span id="total_price">
-                                ${{ \App\Models\Cart::where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->sum('price') }}
+                                {{ \App\Models\Cart::where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->sum('price') }} جنيه مصري
                             </span>
                         </li>
                     </ul>
                         @if(\App\Models\Cart::where('user_id',\Illuminate\Support\Facades\Auth::user()->id)->get()->count() > 0)
-                            <a href="" class="default-btn" id="checkout-btn">
+                            <a href="{{ route('site.checkout.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,
+                                          'name'=>\Illuminate\Support\Facades\Auth::check() ? str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name) : 'name']) }}"
+                               class="default-btn" id="checkout-btn">
                                 <i class="flaticon-trolley"></i>الانتقال الي عملية الدفع
                             </a>
                         @endif
@@ -115,20 +117,20 @@
             e.preventDefault();
             let price = $(this).parents('td').siblings('td').children('.unit-amount').text();
             let total_price = $(this).parents('td').siblings('td').children('.subtotal-amount').text();
-            let new_price = parseFloat(price.toString().substr(1));
-            let new_total_price = parseFloat(total_price.toString().substr(1));
-            $(this).parents('td').siblings('td').children('.subtotal-amount').text('$' + (new_total_price+new_price));
+            let new_price = parseFloat(price.toString().substr(0,price.indexOf("£E")));
+            let new_total_price = parseFloat(total_price.toString().substr(0,total_price.indexOf("£E")));
+            $(this).parents('td').siblings('td').children('.subtotal-amount').text((new_total_price+new_price) + '£E');
         })
 
         $(document).on('click','.minus-btn',function (e) {
             e.preventDefault();
                 let price = $(this).parents('td').siblings('td').children('.unit-amount').text();
                 let total_price = $(this).parents('td').siblings('td').children('.subtotal-amount').text();
-                let new_price = parseFloat(price.toString().substr(1));
-                let new_total_price = parseFloat(total_price.toString().substr(1));
+                let new_price = parseFloat(price.toString().substr(0,price.indexOf("£E")));
+                let new_total_price = parseFloat(total_price.toString().substr(0,total_price.indexOf("£E")));
                 if((new_total_price-new_price) > 0)
                 {
-                    $(this).parents('td').siblings('td').children('.subtotal-amount').text('$' + (new_total_price-new_price));
+                    $(this).parents('td').siblings('td').children('.subtotal-amount').text((new_total_price-new_price) + "£E" );
                 }
 
 

@@ -17,6 +17,8 @@ class RegisterRequest extends FormRequest
         return [
             'name'=>   ['required','string'],
             'email' => ['required','email','unique:users,email'],
+            'phone_number' => ['required','unique:users,phone_number'],
+            'address' => ['required'],
             'password' => ['required','confirmed']
         ];
     }
@@ -29,6 +31,9 @@ class RegisterRequest extends FormRequest
             'email.required'=>   'البريد الالكتروني مطلوب',
             'email.email'=>   'البريد الالكتروني غير صالح',
             'email.unique'=>   'البريد الالكتروني مسجل لدينا بالفعل',
+            'phone_number.required'=>   'رقم الهاتف مطلوب',
+            'phone_number.unique'=>   'رقم الهاتف مسجل لدينا بالفعل',
+            'address.required'=>   'العنوان مطلوب',
             'password.required'=>   'كلمة السر مطلوبة',
             'password.confirmed'=>   'كلمة السر غير متطابقة',
         ];

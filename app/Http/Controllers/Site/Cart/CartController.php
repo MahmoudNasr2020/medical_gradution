@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Site\Cart;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function index()
+    public function index($id)
     {
+        User::findOrFail($id);
          $all_carts = Cart::with('product:id,name,price,image')->where('user_id',Auth::user()->id)->get();
 
         if(!$all_carts)

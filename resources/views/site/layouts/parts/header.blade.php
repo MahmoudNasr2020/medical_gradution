@@ -55,7 +55,7 @@
         <div class="container">
             <div class="drodo-responsive-menu">
                 <div class="logo">
-                    <a href="index-4.html">
+                    <a href="{{ route('site.home') }}">
                         <img src="{{ asset('images/logo.jpg') }}" style="height: 80px !important;" alt="logo">
                     </a>
                 </div>
@@ -66,8 +66,8 @@
     <div class="drodo-nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
-                <a class="navbar-brand" href="index-4.html">
-                    <img src="{{ asset('images/logo.jpg') }}" style="height: 80px !important;" alt="logo">
+                <a class="navbar-brand" href="{{ route('site.home') }}">
+                    <img src="{{ asset('images/logo.png') }}" style="height: 80px !important;" alt="logo">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu">
@@ -115,7 +115,8 @@
 
                         <div class="option-item">
                             <div class="cart-btn">
-                                <a href="{{ route('site.cart.index') }}">
+                                <a href="{{ route('site.cart.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,
+                                                    'name'=>\Illuminate\Support\Facades\Auth::check() ? str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name) : 'name']) }}">
                                     @php
                                         use App\Models\Cart;
                                         use Illuminate\Support\Facades\Auth;

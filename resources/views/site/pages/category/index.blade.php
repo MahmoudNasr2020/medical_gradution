@@ -72,7 +72,7 @@
                                     <div class="content">
                                         <h3><a href="{{ route('site.product.index',['id'=>$product->id,'name'=>str_replace(' ','_',$product->name)]) }}">{{ $product->name }}</a></h3>
                                         <div class="price">
-                                            <span class="new-price">${{ $product->price }}</span>
+                                            <span class="new-price">{{ $product->price }} {{ $currency }}</span>
                                         </div>
                                     </div>
                                 </div>

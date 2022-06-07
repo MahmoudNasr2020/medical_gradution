@@ -89,6 +89,22 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label>رقم الهاتف</label>
+                                    <input type="text" class="form-control" name="phone_number" required  placeholder="ادخل رقم الهاتف ">
+                                    @error('phone_number')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label>العنوان</label>
+                                    <input type="text" class="form-control" name="address" required  placeholder="ادخل العنوان ">
+                                    @error('address')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
                                     <label>كلمة السر</label>
                                     <input type="password" class="form-control" name="password" required placeholder="ادخل كلمة السر">
                                     @error('password')

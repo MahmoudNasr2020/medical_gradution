@@ -1,5 +1,7 @@
 @extends('site.layouts.index')
 @section('content')
+
+
     <!-- Start Main Banner Area -->
     <section class="main-banner-with-categories">
         <div class="container">
@@ -33,7 +35,7 @@
                                     <h1>{{ substr($banner_product->name,0,strpos($banner_product->name,' ')) }} <br>
                                         {{ substr($banner_product->name,strpos($banner_product->name,' ')) }}
                                     </h1>
-                                    <p>قم بالتسوق في موقعنا وشراء المنتج الان</p>
+                                    <p>قم بالتسوق في موقعنا وشراء ما تريده من المنتجات الان </p>
                                     <div class="btn-box">
                                         <div class="d-flex align-items-center">
                                             <a href="{{  route('site.category.index',['id'=>$banner_product->category->id,'name'=>str_replace(' ','_',$banner_product->category->category_name)]) }}" class="default-btn"><i class="flaticon-trolley"></i> تسوق الان</a>
@@ -101,7 +103,7 @@
                         <div class="content">
                             <h3><a href="{{ route('site.product.index',['id'=>$product->id,'name'=>str_replace(' ','_',$product->name)]) }}">{{ $product->name }}</a></h3>
                             <div class="price">
-                                <span class="new-price"> ${{ $product->price }} </span>
+                                <span class="new-price"> {{ $product->price }} {{ $currency }} </span>
                             </div>
                         </div>
                     </div>

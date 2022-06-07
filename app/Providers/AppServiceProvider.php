@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::share('categories_nav',Category::select('id','category_name')->limit(10)->get());
+        View::share('currency','£E');
     }
 }

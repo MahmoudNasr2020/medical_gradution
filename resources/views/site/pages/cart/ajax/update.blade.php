@@ -26,8 +26,8 @@
                             text: 'تم تحديث العربة بنجاح',
                             confirmButtonText: 'موافق',
                         });
-                        $('#sub_price').text('$' + data);
-                        $('#total_price').text('$' + data);
+                        $('#sub_price').text(data + ' جنيه مصري');
+                        $('#total_price').text(data + ' جنيه مصري');
                     }
                 });
             }
