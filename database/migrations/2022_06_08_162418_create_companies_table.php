@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->string('price');
-            $table->string('production_country');
-            $table->string('image');
-            $table->foreignId('category_id');
-            $table->foreignId('company_id');
+            $table->string('email')->unique();
+            $table->string('phone_number')->unique();
+            $table->string('location');
+            $table->string('password');
+            $table->string('image')->default('https://pngimage.net/wp-content/uploads/2018/05/cartoon-building-png-3.png');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('companies');
     }
 };

@@ -26,5 +26,14 @@
             confirmButtonText: 'موافق',
         });
     @endif
+
+    @if(\Illuminate\Support\Facades\Session::has('login_error') )
+        Swal.fire({
+            icon: 'error',
+            title: 'فشلت',
+            text: '{{  \Illuminate\Support\Facades\Session::get('login_error') }}',
+            confirmButtonText: 'موافق',
+        });
+    @endif
 </script>
 @yield('script')

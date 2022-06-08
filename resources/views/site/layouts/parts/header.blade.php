@@ -19,11 +19,13 @@
                                 </button>
 
                                 <div class="dropdown-menu">
+                                    <a href="{{ route('site.order.index',['id'=>\Illuminate\Support\Facades\Auth::user()->id,'name'=>str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name)]) }}" class="dropdown-item">طلباتي</a>
                                     <a href="#" class="dropdown-item" onclick="var form = document.getElementById('form_logout').submit()">تسجيل الخروج</a>
                                     <form class="d-none" method="POST" action="{{ route('site.logout') }}" id="form_logout">
                                         @csrf
                                     </form>
                                 </div>
+
                             </div>
                         </li>
                     @else

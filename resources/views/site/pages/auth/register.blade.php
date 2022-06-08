@@ -125,28 +125,54 @@
                         <div class="login-form">
                             <h2>شركة جديده</h2>
 
-                            <form>
+                            <form method="POST" action="{{ route('company.register.store') }}">
+                                @csrf
                                 <div class="form-group">
-                                    <label>Username or email</label>
-                                    <input type="text" class="form-control" placeholder="Username or email">
+                                    <label>الاسم</label>
+                                    <input type="text" class="form-control" name="name" required  placeholder="ادخل الاسم">
+                                    @error('name')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <label>البريد الالكتروني</label>
+                                    <input type="email" class="form-control" name="email" required  placeholder="ادخل البريد الالكتروني" style="text-align: right;">
+                                    @error('email')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
                                 </div>
 
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 remember-me-wrap">
-                                        <p>
-                                            <input type="checkbox" id="test2">
-                                            <label for="test2">Remember me</label>
-                                        </p>
-                                    </div>
-
+                                <div class="form-group">
+                                    <label>رقم الهاتف</label>
+                                    <input type="text" class="form-control" name="phone_number" required  placeholder="ادخل رقم الهاتف ">
+                                    @error('phone_number')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
                                 </div>
 
-                                <button type="submit">Log In</button>
+                                <div class="form-group">
+                                    <label>العنوان</label>
+                                    <input type="text" class="form-control" name="location" required  placeholder="ادخل موقع الشركة ">
+                                    @error('address')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label>كلمة السر</label>
+                                    <input type="password" class="form-control" name="password" required placeholder="ادخل كلمة السر">
+                                    @error('password')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label> تاكيد كلمة السر </label>
+                                    <input type="password" class="form-control" name="password_confirmation" required  placeholder="تاكيد كلمة السر">
+                                </div>
+
+                                <button type="submit">تسجيل</button>
                             </form>
                         </div>
                     </div>

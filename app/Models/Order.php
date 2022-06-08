@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','order_list','status'];
+
+    protected $fillable = ['user_id','order_list','total_price','order_id','status'];
 
     protected $casts = [
         'order_list' => 'array',

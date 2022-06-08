@@ -21,7 +21,7 @@ class LoginController extends Controller
         {
             return redirect()->route('site.home');
         }
-        return redirect()->route('site.home');
+        return redirect()->route('site.loginUser')->with(['login_error'=>'خطأ في بيانات الدخول']);
     }
 
     public function logoutUser()

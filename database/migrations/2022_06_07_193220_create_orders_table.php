@@ -17,16 +17,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->json('order_list');
+            $table->double('total_price');
+            $table->integer('order_id');
             $table->enum('status',['success','failed','pending'])->default('pending');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('orders');

@@ -18,8 +18,8 @@
                 cart_count.data('count',count);
                 cart_count.attr('data-count',count);
                 cart_count.text(count);
-                $('#sub_price').text('$' + data);
-                $('#total_price').text('$' + data);
+                $('#sub_price').text(data + ' جنيه مصري');
+                $('#total_price').text(data + ' جنيه مصري');
                 if(data == 0)
                 {
                     $('#checkout-btn').remove();

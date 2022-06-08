@@ -38,6 +38,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web')
+                ->as('company.')
+                ->prefix('company/')
+                ->group(base_path('routes/company.php'));
+
+            Route::middleware('web')
                 //->namespace('Dashboard')
                 ->prefix('dashboard')
                 ->name('dashboard.')

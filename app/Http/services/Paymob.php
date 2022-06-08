@@ -4,18 +4,23 @@
 namespace App\Http\services;
 
 
+use App\Models\Order_note;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 
 class Paymob
 {
 
-    public function credit($price,$first_name,$last_name,$mobile_phone,$email,$address)
+    public function credit($price,$first_name,$last_name,$mobile_phone,$email,$address,$notes)
     {
         $token = $this->getToken();
         $order = $this->sendOrder($token,$price);
         $payment_token = $this->getPaymentToken($token,$order->id,$price,$first_name,$last_name,$mobile_phone,$email,$address);
-        //Order::create(['order_id'=>$order->id,'invoice_id'=>$invoice_id]);
+        if($notes != null)
+        {
+            Order_note::create(['order_id'=>$order->id,'notes'=>$notes]);
+        }
         return Redirect::away('https://accept.paymob.com/api/acceptance/iframes/395023?payment_token='.$payment_token);
 
     }
@@ -117,7 +122,7 @@ class Paymob
         $hashed = hash_hmac('sha512',$connectedString,$secret);
         if($hashed == $hmac)
         {
-            return ['process'=>'secret'];
+            return ['process'=>'secret','total_price'=>$data['amount_cents']/100,'order_id'=>$data['order']];
         }
         return ['process'=>'not_secret'];
     }

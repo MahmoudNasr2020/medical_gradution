@@ -7,6 +7,7 @@ use App\Http\Controllers\Site\Category\CategoryController;
 use App\Http\Controllers\Site\Checkout\CheckoutController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\Product\ProductController;
+use App\Http\Controllers\Site\User\OrderController;
 use Illuminate\Support\Facades\Route;
 
 //route home
@@ -46,6 +47,9 @@ Route::group(['middleware'=>'auth'],function () {
     Route::get('checkout/{id}/{name?}', [CheckoutController::class,'index'])->name('checkout.index'); //checkout
     Route::post('checkoutPay', [CheckoutController::class,'pay'])->name('checkout.pay'); //checkout pay
     Route::get('/payment/callback',[CheckoutController::class,'callback'])->name('callback'); //callback payment
+
+    //user route
+    Route::get('/orders/{id}/{name?}', [OrderController::class,'index'])->name('order.index'); //checkout
 
 });
 

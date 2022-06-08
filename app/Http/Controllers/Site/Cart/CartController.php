@@ -15,11 +15,6 @@ class CartController extends Controller
     {
         User::findOrFail($id);
          $all_carts = Cart::with('product:id,name,price,image')->where('user_id',Auth::user()->id)->get();
-
-        if(!$all_carts)
-        {
-            return abort(404);
-        }
         return view('site.pages.cart.index',compact('all_carts'));
     }
 

@@ -23,14 +23,14 @@ class CheckoutController extends Controller
 
     public function pay(Request $request,Paymob $paymob)
     {
-        $carts = Cart::where('user_id',Auth::user()->id)->get();
+        $carts = Cart::where('user_id',Auth::user()->id)->first();
         if(!$carts)
         {
             return abort(404);
         }
         $first_name = substr(Auth::user()->name,0,strpos(Auth::user()->name,' '));
         $last_name = substr(Auth::user()->name,strpos(Auth::user()->name,' '));
-        $paymob = $paymob->credit($carts->sum('price')*100,$first_name,$last_name,Auth::user()->phone_number,Auth::user()->email,Auth::user()->address);
+        $paymob = $paymob->credit($carts->sum('price')*100,$first_name,$last_name,Auth::user()->phone_number,Auth::user()->email,Auth::user()->address,$request->notes);
         return $paymob;
     }
 
@@ -59,6 +59,8 @@ class CheckoutController extends Controller
            Order::create([
                'user_id' => Auth::user()->id,
                'order_list' => json_encode($order_list),
+               'total_price' => $callback['total_price'],
+               'order_id'=> $callback['order_id'],
            ]);
         }
         return redirect()->route('site.home')->with(['payment'=>'success']);
