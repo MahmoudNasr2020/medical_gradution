@@ -19,7 +19,7 @@
             success:function(data){
                 $('#image_modal').attr('src',data.image);
                 $('#product_name').text(data.name);
-                $('#price').text(data.price + '$');
+                $('#price').text(data.price + ' جنيه مصري ');
                 $('#category_name').text(data.category.category_name);
                 $('#country_production').text(data.production_country);
                 $('#product_desc').text(data.description);

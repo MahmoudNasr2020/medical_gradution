@@ -5,6 +5,7 @@ use App\Http\Controllers\Site\Auth\RegisterController;
 use App\Http\Controllers\Site\Cart\CartController;
 use App\Http\Controllers\Site\Category\CategoryController;
 use App\Http\Controllers\Site\Checkout\CheckoutController;
+use App\Http\Controllers\Site\Favourite\FavouriteController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\Product\ProductController;
 use App\Http\Controllers\Site\User\OrderController;
@@ -49,7 +50,13 @@ Route::group(['middleware'=>'auth'],function () {
     Route::get('/payment/callback',[CheckoutController::class,'callback'])->name('callback'); //callback payment
 
     //user route
-    Route::get('/orders/{id}/{name?}', [OrderController::class,'index'])->name('order.index'); //checkout
+    Route::get('/orders/{id}/{name?}', [OrderController::class,'index'])->name('order.index'); //orders
+
+
+    //user route
+    Route::get('favourite/{id}/{name?}', [FavouriteController::class,'index'])->name('favourite.index'); //checkout
+    Route::post('/favourite/store', [FavouriteController::class,'store'])->name('favourite.store'); //favourite
+    Route::post('/favourite/delete', [FavouriteController::class,'delete'])->name('favourite.delete'); //delete favourite
 
 });
 

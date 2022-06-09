@@ -18,4 +18,4 @@
 @yield('style')
 <title>Drodo - Emergency Medical Supply HTML Template</title>
 
-<link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}" >
+<link rel="icon" type="image/png" href="{{ asset('images/logo2.jpg') }}" >

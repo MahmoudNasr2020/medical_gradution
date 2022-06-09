@@ -51,7 +51,7 @@
                                     <div class="input-counter">
                                         <span class="minus-btn"><i class='bx bx-minus'></i></span>
                                         <label>
-                                            <input type="text" min="1" value="{{ $cart->quantity }}" class="quantity_input">
+                                            <input type="text" min="1" value="{{ $cart->quantity }}" class="quantity_input" readonly>
                                         </label>
                                         <span class="plus-btn"><i class='bx bx-plus'></i></span>
                                     </div>

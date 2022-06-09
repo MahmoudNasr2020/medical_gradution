@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Redirect;
 class Paymob
 {
 
-    public function credit($price,$first_name,$last_name,$mobile_phone,$email,$address,$notes)
+    public function credit($price,$name,$mobile_phone,$email,$address,$notes)
     {
         $token = $this->getToken();
         $order = $this->sendOrder($token,$price);
-        $payment_token = $this->getPaymentToken($token,$order->id,$price,$first_name,$last_name,$mobile_phone,$email,$address);
+        $payment_token = $this->getPaymentToken($token,$order->id,$price,$name,$mobile_phone,$email,$address);
         if($notes != null)
         {
             Order_note::create(['order_id'=>$order->id,'notes'=>$notes]);
@@ -47,13 +47,13 @@ class Paymob
         return json_decode($response);
     }
 
-    public function getPaymentToken($token,$order_id,$price,$first_name,$last_name,$mobile_phone,$email,$address)
+    public function getPaymentToken($token,$order_id,$price,$name,$mobile_phone,$email,$address)
     {
         $billing_data = [
             'apartment' => 8212,
             'email' => $email,
             'floor'=>"NA",
-            'first_name' => $first_name,
+            'first_name' => $name,
             'street' => "NA",
             'building' => "NA",
             'phone_number' => $mobile_phone,
@@ -61,7 +61,7 @@ class Paymob
             'postal_code' => "NA",
             'city' => $address,
             'country' =>"NA",
-            'last_name' => $last_name,
+            'last_name' => $name,
             'state' => "NA"
         ];
 

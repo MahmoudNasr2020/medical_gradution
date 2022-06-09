@@ -26,6 +26,14 @@
             confirmButtonText: 'موافق',
         });
     @endif
+   @if(\Illuminate\Support\Facades\Session::has('fav_delete') && \Illuminate\Support\Facades\Session::get('fav_delete') == 'success')
+        Swal.fire({
+            icon: 'success',
+            title: 'تمت',
+            text: 'تمت الازالة بنجاح',
+            confirmButtonText: 'موافق',
+        });
+    @endif
 
     @if(\Illuminate\Support\Facades\Session::has('login_error') )
         Swal.fire({

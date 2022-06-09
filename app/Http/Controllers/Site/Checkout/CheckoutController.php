@@ -28,9 +28,8 @@ class CheckoutController extends Controller
         {
             return abort(404);
         }
-        $first_name = substr(Auth::user()->name,0,strpos(Auth::user()->name,' '));
-        $last_name = substr(Auth::user()->name,strpos(Auth::user()->name,' '));
-        $paymob = $paymob->credit($carts->sum('price')*100,$first_name,$last_name,Auth::user()->phone_number,Auth::user()->email,Auth::user()->address,$request->notes);
+        $name = Auth::user()->name;
+        $paymob = $paymob->credit($carts->sum('price')*100,$name,Auth::user()->phone_number,Auth::user()->email,Auth::user()->address,$request->notes);
         return $paymob;
     }
 

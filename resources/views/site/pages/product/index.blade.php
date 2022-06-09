@@ -78,55 +78,90 @@
                     <h2>المنتجات ذات العلاقة</h2>
                 </div>
 
-                <div class="products-slides owl-carousel owl-theme">
-                        @foreach($product->category->products as $related_product)
-                            @if($related_product->id != $product->id)
-                                <div class="single-products-box">
-                                    <div class="image">
-                                        <a href="{{ route('site.product.index',['id'=>$related_product->id,'name'=>str_replace(' ','_',$related_product->name)]) }}" class="d-block">
-                                            <img src="{{ $related_product->image  }}" alt="image" style="height: 153px;border-radius: 12px;">
-                                        </a>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="drodo-grid-sorting row align-items-center">
+                            <div class="col-lg-6 col-md-6 result-count">
+                                <p> وجدنا <span class="count">{{ $product->category->products->count() - 1 }}</span> منتج مرتبط بهذا المنتج </p>
 
-                                        <div class="buttons-list">
-                                            <ul>
-                                                <li>
-                                                    <div class="cart-btn">
-                                                        <a href="#" class="add_to_cart" data-product_id="{{ $related_product->id }}">
-                                                            <i class='bx bxs-cart-add'></i>
-                                                            <span class="tooltip-label">اضف الي العربة</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="wishlist-btn">
-                                                        <a href="#">
-                                                            <i class='bx bx-heart'></i>
-                                                            <span class="tooltip-label">اضف الي المفضلة</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="quick-view-btn">
-                                                        <a href="#" data-bs-toggle="modal" class="product-view"
-                                                           data-bs-target="#productsQuickView" data-id="{{ $related_product->id }}">
-                                                            <i class='bx bx-search-alt'></i>
-                                                            <span class="tooltip-label">مشاهدة سريعة</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                <span class="sub-title d-lg-none"><a href="#" data-bs-toggle="modal" data-bs-target="#productsFilterModal"><i class='bx bx-filter-alt'></i> Filter</a></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            @foreach($product->category->products as $related_product)
+                                @if($related_product->id != $product->id )
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single-products-box">
+                                            <div class="image">
+                                                <a href="{{ route('site.product.index',['id'=>$related_product->id,'name'=>str_replace(' ','_',$related_product->name)]) }}" class="d-block">
+                                                    <img src="{{ $related_product->image }}" alt="image" style="width: 100%;height: 220px;border-radius: 12px;">
+                                                </a>
+
+                                                <div class="buttons-list">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="cart-btn">
+                                                                <a href="#" class="add_to_cart" data-product_id="{{ $related_product->id }}">
+                                                                    <i class='bx bxs-cart-add'></i>
+                                                                    <span class="tooltip-label">اضف الي العربة</span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="wishlist-btn">
+                                                                @php
+                                                                        $class = '';
+                                                                        $color = '';
+                                                                        $background = '';
+                                                                        $text =  'اضف الي المفضلة' ;
+                                                                        if(\Illuminate\Support\Facades\Auth::check())
+                                                                        {
+                                                                            $item = \App\Models\Favourite::where(['user_id' => \Illuminate\Support\Facades\Auth::user()->id,'product_id'=>$related_product->id])->first() ? true : false ;
+                                                                            if($item)
+                                                                            {
+                                                                                $class = 'active';
+                                                                                $color = '#ffffff';
+                                                                                $background = '#470938';
+                                                                                $text = 'ازالة من المفضلة' ;
+                                                                            }
+                                                                        }
+
+                                                                @endphp
+                                                                <a href="#" class="favourite {{ $class }}" data-product_id="{{ $related_product->id }}"
+                                                                   style="background-color: {{ $background }};color: {{ $color }}">
+                                                                    <i class='bx bx-heart'></i>
+                                                                    <span class="tooltip-label favourite_text">{{ $text }}</span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="quick-view-btn">
+                                                                <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView"
+                                                                   class="product-view" data-id="{{ $related_product->id }}">
+                                                                    <i class='bx bx-search-alt'></i>
+                                                                    <span class="tooltip-label">مشاهدة سريعة</span>
+                                                                </a>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="content">
+                                                <h3><a href="{{ route('site.product.index',['id'=>$related_product->id,'name'=>str_replace(' ','_',$related_product->name)]) }}">{{ $related_product->name }}</a></h3>
+                                                <div class="price">
+                                                    <span class="new-price">{{ $related_product->price }} {{ $currency }}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                @endif
+                            @endforeach
 
-                                    <div class="content">
-                                        <h3><a href="{{ route('site.product.index',['id'=>$related_product->id,'name'=>str_replace(' ','_',$related_product->name)]) }}">{{ $related_product->name }}</a></h3>
-                                        <div class="price">
-                                            <span class="new-price"> {{ $related_product->price }}{{ $currency }} </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -136,6 +171,7 @@
     @include('site.pages.product.modal')
 @endsection
 @section('script')
+    @include('site.pages.favourite.favourite')
     @include('site.pages.product.getProduct')
     @include('site.pages.cart.ajax.add')
 @stop

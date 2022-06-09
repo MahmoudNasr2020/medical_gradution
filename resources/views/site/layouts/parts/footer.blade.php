@@ -2,14 +2,16 @@
 <footer class="footer-area">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-sm-6 col-md-6">
+            <div class="col-lg-4 col-sm-6 col-md-6">
                 <div class="single-footer-widget">
-                    <a href="#" class="logo d-inline-block"><img src="assets/img/logo.png" alt="image"></a>
-                    <ul class="footer-contact-info">
-                        <li><span>Hotline:</span> <a href="#">16768</a></li>
-                        <li><span>Phone:</span> <a href="tel:+1234567898">(+123) 456-7898</a></li>
-                        <li><span>Email:</span> <a href="https://templates.envytheme.com/cdn-cgi/l/email-protection#751d1019191a3511071a111a5b161a18"><span class="__cf_email__" data-cfemail="e38b868f8f8ca387918c878ccd808c8e">[email&#160;protected]</span></a></li>
-                        <li><span>Address:</span> <a href="#" target="_blank">6890 Blvd, The Bronx, NY 1058, USA</a></li>
+                    <a href="#" class="logo d-inline-block"><img src="{{ asset('images/logo2.jpg') }}" style="height: 164px;margin-top: -76px;" alt="image"></a>
+                    <ul class="footer-contact-info" style="margin-top: -52px;">
+                        <li><span>الخط الساخن:</span> <a href="#">16768</a></li>
+                        <li><span>الهاتف:</span> <a href="tel:+1234567898">(+123) 456-7898</a></li>
+                        <li><span>الايميل:</span>
+                            <a href="#">
+                                <span class="__cf_email__" >test@test.com</span></a></li>
+                        <li><span>العنوان:</span> <a href="#" target="_blank">المعهد العالي للهندسة , مدينة الثقافة والعلوم , 6 اكتوبر</a></li>
                     </ul>
                     <ul class="social">
                         <li><a href="#" target="_blank"><i class='bx bxl-facebook-square'></i></a></li>
@@ -21,47 +23,33 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-sm-6 col-md-6">
+            <div class="col-lg-4 col-sm-6 col-md-6">
                 <div class="single-footer-widget">
-                    <h3>Information</h3>
+                    <h3>معلومات</h3>
 
                     <ul class="link-list">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms & Conditions</a></li>
-                        <li><a href="customer-service.html">Delivery Information</a></li>
-                        <li><a href="customer-service.html">Orders and Returns</a></li>
+                        <li><a href="{{ route('site.home') }}">الرئيسية</a></li>
+                        <li><a href="#">عنا</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-sm-6 col-md-6">
+            <div class="col-lg-4 col-sm-6 col-md-6">
                 <div class="single-footer-widget">
-                    <h3>Customer Care</h3>
+                    <h3>العملاء</h3>
 
                     <ul class="link-list">
-                        <li><a href="faq.html">Help & FAQs</a></li>
-                        <li><a href="profile-authentication.html">My Account</a></li>
-                        <li><a href="cart.html">Order History</a></li>
-                        <li><a href="cart.html">Wishlist</a></li>
-                        <li><a href="contact.html">Newsletter</a></li>
-                        <li><a href="purchase-guide.html">Purchasing Policy</a></li>
+                        <li><a href="#">حسابي</a></li>
+                        <li><a href="{{ route('site.order.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,'name'=>str_replace(' ','_',\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->name : 'NAN')]) }}">طلباتي</a></li>
+                        <li><a href="{{ route('site.cart.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,
+                                                    'name'=>\Illuminate\Support\Facades\Auth::check() ? str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name) : 'name']) }}">عربة التسوق</a></li>
+                        <li><a href="{{ route('site.favourite.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,
+                                                    'name'=>\Illuminate\Support\Facades\Auth::check() ? str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name) : 'name'])  }}">المفضلة</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-sm-6 col-md-6">
-                <div class="single-footer-widget">
-                    <h3>Newsletter</h3>
-                    <p>Sign up for our mailing list to get the latest updates & offers.</p>
-                    <form class="newsletter-form" data-bs-toggle="validator">
-                        <input type="text" class="input-newsletter" placeholder="Enter your email address" name="EMAIL" required autocomplete="off">
-                        <button type="submit" class="default-btn">Subscribe Now</button>
-                        <div id="validator-newsletter" class="form-result"></div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 

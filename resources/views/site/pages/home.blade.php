@@ -81,9 +81,28 @@
                                     </li>
                                     <li>
                                         <div class="wishlist-btn">
-                                            <a href="#">
+                                            @php
+                                                $class = '';
+                                                $color = '';
+                                                $background = '';
+                                                $text =  'اضف الي المفضلة' ;
+                                                   if(\Illuminate\Support\Facades\Auth::check())
+                                                   {
+                                                    $item = \App\Models\Favourite::where(['user_id' => \Illuminate\Support\Facades\Auth::user()->id ,'product_id'=>$product->id])->first() ? true : false ;
+                                                    if($item)
+                                                   {
+                                                       $class = 'active';
+                                                       $color = '#ffffff';
+                                                       $background = '#470938';
+                                                       $text = 'ازالة من المفضلة' ;
+                                                   }
+                                                   }
+
+                                            @endphp
+                                            <a href="#" class="favourite {{ $class }}" data-product_id="{{ $product->id }}"
+                                               style="background-color: {{ $background }};color: {{ $color }}">
                                                 <i class='bx bx-heart'></i>
-                                                <span class="tooltip-label">اضف الي المفضلة</span>
+                                                <span class="tooltip-label favourite_text">{{ $text }}</span>
                                             </a>
                                         </div>
                                     </li>
@@ -139,5 +158,6 @@
 
 @section('script')
     @include('site.pages.product.getProduct')
+    @include('site.pages.favourite.favourite')
     @include('site.pages.cart.ajax.add')
 @stop

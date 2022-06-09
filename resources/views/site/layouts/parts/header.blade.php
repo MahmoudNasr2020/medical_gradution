@@ -58,7 +58,7 @@
             <div class="drodo-responsive-menu">
                 <div class="logo">
                     <a href="{{ route('site.home') }}">
-                        <img src="{{ asset('images/logo.jpg') }}" style="height: 80px !important;" alt="logo">
+                        <img src="{{ asset('images/logo2.jpg') }}" style="height: 80px !important;" alt="logo">
                     </a>
                 </div>
             </div>
@@ -69,7 +69,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="{{ route('site.home') }}">
-                    <img src="{{ asset('images/logo.png') }}" style="height: 80px !important;" alt="logo">
+                    <img src="{{ asset('images/logo2.jpg') }}" style="height: 80px !important;" alt="logo">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu">
@@ -110,8 +110,22 @@
 
                     <div class="others-option">
                         <div class="option-item">
-                            <div class="wishlist-btn">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal"><i class='bx bx-heart'></i></a>
+                            <div class="cart-btn">
+                                <a href="{{ route('site.favourite.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,
+                                                    'name'=>\Illuminate\Support\Facades\Auth::check() ? str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name) : 'name']) }}">
+                                    @php
+                                       if(Auth::check())
+                                       {
+                                            $count_fav = \App\Models\Favourite::where('user_id',Auth::user()->id)->get()->count();
+                                       }
+                                       else
+                                       {
+                                           $count_fav = 0;
+                                       }
+                                    @endphp
+                                    <i class='bx bx-heart'></i>
+                                    <span id="fav_count" data-count="{{ $count_fav }}">{{ $count_fav }}</span>
+                                </a>
                             </div>
                         </div>
 
@@ -120,9 +134,8 @@
                                 <a href="{{ route('site.cart.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,
                                                     'name'=>\Illuminate\Support\Facades\Auth::check() ? str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name) : 'name']) }}">
                                     @php
-                                        use App\Models\Cart;
-                                        use Illuminate\Support\Facades\Auth;
-                                       if(Auth::check())
+                                       use App\Models\Cart;
+                                        if(Auth::check())
                                        {
                                             $count = Cart::where('user_id',Auth::user()->id)->get()->count();
                                        }

@@ -42,17 +42,9 @@
 
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <label>الاسم الاول <span class="required">*</span></label>
+                                            <label>الاسم <span class="required">*</span></label>
                                             <input type="text" class="form-control" readonly
-                                                   value="{{ substr(\Illuminate\Support\Facades\Auth::user()->name,0,strpos(\Illuminate\Support\Facades\Auth::user()->name,' ')) }}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <label>الاسم الاخير <span class="required">*</span></label>
-                                            <input type="text" class="form-control" readonly
-                                                   value="{{ substr(\Illuminate\Support\Facades\Auth::user()->name,strpos(\Illuminate\Support\Facades\Auth::user()->name,' ')) }}">
+                                                   value="{{ \Illuminate\Support\Facades\Auth::user()->name }}">
                                         </div>
                                     </div>
 
