@@ -25,4 +25,9 @@ class Company extends Authenticatable
         'location',
         'image'
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'company_id');
+    }
 }

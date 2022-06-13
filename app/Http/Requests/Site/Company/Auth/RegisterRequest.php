@@ -20,10 +20,10 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name'          => ['required','string'],
-            'email'         => ['required','email','unique:users,email'],
-            'phone_number'  => ['required','unique:users,phone_number'],
+            'email'         => ['required','email','unique:users,email','unique:companies,email'],
+            'phone_number'  => ['required','unique:users,phone_number','unique:companies,phone_number'],
             'location'       => ['required'],
-            'password'      => ['required','confirmed']
+            'password'       => ['required','confirmed']
         ];
     }
 

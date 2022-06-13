@@ -65,7 +65,7 @@ class ProductSeeder extends Seeder
                 'production_country'=>'USA',
                 'image'=>'https://azb4fstg-cdn-endpoint.azureedge.net/mediacontainer/medialibraries/smithersb4f/industries/life%20science/medical%20device/thumbnail/medical-device-testing-644x350.png?ext=.png',
                 'category_id'=>4,
-                'company_id'=>1,
+                'company_id'=>2,
             ],
             [
                 'name'=>'New Microscope',
@@ -76,7 +76,7 @@ class ProductSeeder extends Seeder
                 'production_country'=>'USA',
                 'image'=>'https://www.jnjmedtech.com/sites/default/files/styles/crop_presets/public/2022-03/image%20%281%29-min.png?itok=2kAgZZwq',
                 'category_id'=>5,
-                'company_id'=>1,
+                'company_id'=>2,
             ],
         ];
 

@@ -105,28 +105,35 @@
                     <div class="tab-pane fade" id="company-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                         <div class="login-form">
                             <h2>شركة </h2>
-                            <form>
+                            <form method="POST" action="{{ route('company.login.store') }}">
+                                @csrf
                                 <div class="form-group">
-                                    <label>Username or email</label>
-                                    <input type="text" class="form-control" placeholder="Username or email">
+                                    <label>البريد</label>
+                                    <input type="text" class="form-control" name="email" placeholder="ادخل البريد الالكتروني" style="text-align: right;">
+                                    @error('email')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <label>كلمة السر</label>
+                                    <input type="password" class="form-control" name="password" placeholder="ادخل كلمة السر">
+                                    @error('password')
+                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                    @enderror
                                 </div>
 
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-6 col-sm-6 remember-me-wrap">
                                         <p>
-                                            <input type="checkbox" id="test2">
-                                            <label for="test2">Remember me</label>
+                                            <input type="checkbox" name="remember_me" id="test2">
+                                            <label for="test2">تذكرني</label>
                                         </p>
                                     </div>
 
                                 </div>
 
-                                <button type="submit">Log In</button>
+                                <button type="submit">دخول</button>
                             </form>
                         </div>
                     </div>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone_number')->unique();
             $table->string('location');
             $table->string('password');
-            $table->string('image')->default('https://pngimage.net/wp-content/uploads/2018/05/cartoon-building-png-3.png');
+            $table->string('image')->default('https://www.jing.fm/clipimg/full/38-382519_business-corporation-brand-relations-subscribe-public-corporation-icon.png');
             $table->timestamps();
         });
     }

@@ -1,0 +1,1 @@
+@extends('company.layouts.index')
