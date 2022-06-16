@@ -4,6 +4,7 @@ use App\Http\Controllers\Company\Auth\LoginController;
 use App\Http\Controllers\Company\Auth\RegisterController;
 use App\Http\Controllers\Company\Order\OrderController;
 use App\Http\Controllers\Company\Product\ProductController;
+use App\Http\Controllers\Company\Profile\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 //route guest
@@ -39,4 +40,9 @@ Route::group(['middleware'=>'auth:company'],function (){
 
     Route::get('orders', [OrderController::class,'index'])->name('orders.index');
     Route::get('budget', [OrderController::class,'budget'])->name('budget.index');
+
+    //profile
+    Route::view('profile', 'company.pages.profile.index')->name('profile.index');
+    Route::view('profile/edit', 'company.pages.profile.edit')->name('profile.edit');
+    Route::post('profile/profile/{id}', [ProfileController::class,'update'])->name('profile.update');
 });

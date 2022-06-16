@@ -9,9 +9,9 @@
             </div>
             <ul class="dropdown-menu shadow border-0" aria-labelledby="dropdownMenuButton1" >
                 <li><a class="dropdown-item font-1" href="{{ route('site.home') }}" target="_blank"><span class="fal fa-desktop font-1"></span> عرض الموقع</a></li>
-                <li><a class="dropdown-item font-1" href=""><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
+                <li><a class="dropdown-item font-1" href="{{ route('company.profile.index') }}"><span class="fal fa-user font-1"></span> ملفي الشخصي</a></li>
 
-                <li><a class="dropdown-item font-1" href=""><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li>
+                <li><a class="dropdown-item font-1" href="{{ route('company.profile.edit') }}"><span class="fal fa-edit font-1"></span> تعديل ملفي الشخصي</a></li>
                 <li><hr style="height: 1px;margin: 10px 0px 5px;"></li>
                 <li><a class="dropdown-item font-1" href="#" onclick="event.preventDefault();document.getElementById('form_company_logout').submit()">
                         <span class="fal fa-sign-out-alt font-1"></span> تسجيل خروج</a></li>
