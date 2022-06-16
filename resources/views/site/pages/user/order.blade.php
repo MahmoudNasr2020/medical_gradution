@@ -100,7 +100,9 @@
                                         @foreach($orders as $order)
                                             <tr style="border-bottom-width:3px">
                                                 <td class="product-id">
-                                                    {{ $order->order_id }}
+                                                    <a href="{{ route('site.invoice',['order_id'=>$order->order_id,'name'=>str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name)]) }}">
+                                                        {{ $order->order_id }}
+                                                    </a>
                                                 </td>
 
                                                 <td class="product-name">

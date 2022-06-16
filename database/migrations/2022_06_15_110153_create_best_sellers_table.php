@@ -13,19 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('best_sellers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->text('order_list');
-            $table->double('total_price');
-            $table->integer('order_id');
-            $table->enum('status',['success','failed','pending'])->default('pending');
+            $table->foreignId('product_id');
+            $table->double('quantity')->unsigned();
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('best_sellers');
     }
 };

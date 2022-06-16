@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site\Checkout;
 
 use App\Http\Controllers\Controller;
 use App\Http\services\Paymob;
+use App\Models\BestSeller;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\User;
@@ -53,6 +54,18 @@ class CheckoutController extends Controller
                     'total_price' => $cart->price,
                     'price_product' =>$cart->product->price
                 ];
+                $best_seller = BestSeller::where('product_id',$cart->product_id)->first();
+                if($best_seller)
+                {
+                    $best_seller->increment('quantity',$cart->quantity);
+                }
+                else
+                {
+                    BestSeller::create([
+                        'product_id'=>$cart->product_id,
+                        'quantity' => $cart->quantity
+                    ]);
+                }
                 $cart->delete();
             }
            Order::create([

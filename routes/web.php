@@ -5,6 +5,8 @@ use App\Http\Controllers\Site\Auth\RegisterController;
 use App\Http\Controllers\Site\Cart\CartController;
 use App\Http\Controllers\Site\Category\CategoryController;
 use App\Http\Controllers\Site\Checkout\CheckoutController;
+use App\Http\Controllers\Site\Checkout\InvoiceController;
+use App\Http\Controllers\Site\Company\CompanyController;
 use App\Http\Controllers\Site\Favourite\FavouriteController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\Product\ProductController;
@@ -16,6 +18,9 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 
 //route Category
 Route::get('/category/{id}/{name?}',[CategoryController::class,'index'])->name('category.index');
+
+//route Company
+Route::get('/company/{id}/{name?}',[CompanyController::class,'index'])->name('company.index');
 
 //route product
 Route::get('product/{id}/{name?}',[ProductController::class,'index'])->name('product.index');
@@ -48,6 +53,7 @@ Route::group(['middleware'=>'auth'],function () {
     Route::get('checkout/{id}/{name?}', [CheckoutController::class,'index'])->name('checkout.index'); //checkout
     Route::post('checkoutPay', [CheckoutController::class,'pay'])->name('checkout.pay'); //checkout pay
     Route::get('/payment/callback',[CheckoutController::class,'callback'])->name('callback'); //callback payment
+    Route::get('invoice/{order_id}/{name?}',[InvoiceController::class,'invoice'])->name('invoice'); //callback payment
 
     //user route
     Route::get('/orders/{id}/{name?}', [OrderController::class,'index'])->name('order.index'); //orders

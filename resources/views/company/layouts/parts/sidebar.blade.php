@@ -52,6 +52,17 @@
                 </div>
             </a>
 
+            <a href="{{ route('company.budget.index') }}" class="col-12 px-0">
+                <div class="col-12 item px-0 d-flex " >
+                    <div style="width: 50px" class="px-3 text-center">
+                        <span class="fal fa-tag font-3"> </span>
+                    </div>
+                    <div style="width: calc(100% - 50px)" class="px-2">
+                        المحفظة
+                    </div>
+                </div>
+            </a>
+
             <a href="" class="col-12 px-0">
                 <div class="col-12 item px-0 d-flex " >
                     <div style="width: 50px" class="px-3 text-center">

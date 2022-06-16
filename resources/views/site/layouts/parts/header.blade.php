@@ -58,7 +58,7 @@
             <div class="drodo-responsive-menu">
                 <div class="logo">
                     <a href="{{ route('site.home') }}">
-                        <img src="{{ asset('images/logo2.jpg') }}" style="height: 80px !important;" alt="logo">
+                        <img src="{{ asset('images/logo.png') }}" style="height: 80px !important;" alt="logo">
                     </a>
                 </div>
             </div>
@@ -69,7 +69,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a class="navbar-brand" href="{{ route('site.home') }}">
-                    <img src="{{ asset('images/logo2.jpg') }}" style="height: 80px !important;" alt="logo">
+                    <img src="{{ asset('images/logo.png') }}" style="height: 80px !important;" alt="logo">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu">

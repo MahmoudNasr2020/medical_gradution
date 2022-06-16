@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-4 col-sm-6 col-md-6">
                 <div class="single-footer-widget">
-                    <a href="#" class="logo d-inline-block"><img src="{{ asset('images/logo2.jpg') }}" style="height: 164px;margin-top: -76px;" alt="image"></a>
+                    <a href="#" class="logo d-inline-block"><img src="{{ asset('images/logo.png') }}" style="height: 164px;margin-top: -76px;" alt="image"></a>
                     <ul class="footer-contact-info" style="margin-top: -52px;">
                         <li><span>الخط الساخن:</span> <a href="#">16768</a></li>
                         <li><span>الهاتف:</span> <a href="tel:+1234567898">(+123) 456-7898</a></li>
@@ -63,12 +63,10 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="payment-types">
                         <ul class="d-flex align-items-center justify-content-end">
-                            <li>We accept payment via:</li>
-                            <li><a href="#" target="_blank"><img src="assets/img/payment-types/visa.png" alt="image"></a></li>
-                            <li><a href="#" target="_blank"><img src="assets/img/payment-types/mastercard.png" alt="image"></a></li>
-                            <li><a href="#" target="_blank"><img src="assets/img/payment-types/paypal.png" alt="image"></a></li>
-                            <li><a href="#" target="_blank"><img src="assets/img/payment-types/descpver.png" alt="image"></a></li>
-                            <li><a href="#" target="_blank"><img src="assets/img/payment-types/american-express.png" alt="image"></a></li>
+                            <li>نحن نقبل الدفع من خلال</li>
+                            <li><a href="#" ><img src="{{ asset('site/assets/img/payment-types/visa.png') }}" alt="image"></a></li>
+                            <li><a href="#" ><img src="{{ asset('site/assets/img/payment-types/mastercard.png') }}" alt="image"></a></li>
+                            <li><a href="#" ><img src="{{ asset('site/assets/img/payment-types/meeza.png') }}" style="width: 67px" alt="image"></a></li>
                         </ul>
                     </div>
                 </div>

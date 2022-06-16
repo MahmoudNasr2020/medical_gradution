@@ -132,6 +132,84 @@
         </div>
     </section>
 
+    <!-- Start Products Area -->
+    <section class="products-area pb-40">
+        <div class="container">
+            <div class="section-title">
+                <h2>الاكثر مبيعاً</h2>
+            </div>
+
+            <div class="products-slides owl-carousel owl-theme">
+                @foreach($best_sellers as $best_seller)
+                    <div class="single-products-box">
+                        <div class="image">
+                            <a href="{{ route('site.product.index',['id'=>$best_seller->product->id,'name'=>str_replace(' ','_',$best_seller->product->name)]) }}" class="d-block">
+                                <img src="{{ $best_seller->product->image  }}" alt="image" style="height: 153px;border-radius: 12px;">
+                            </a>
+
+                            <div class="buttons-list">
+                                <ul>
+                                    <li>
+                                        <div class="cart-btn">
+                                            <a href="#" class="add_to_cart" data-product_id="{{ $best_seller->product->id }}">
+                                                <i class='bx bxs-cart-add'></i>
+                                                <span class="tooltip-label">اضف الي العربة</span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="wishlist-btn">
+                                            @php
+                                                $class = '';
+                                                $color = '';
+                                                $background = '';
+                                                $text =  'اضف الي المفضلة' ;
+                                                   if(\Illuminate\Support\Facades\Auth::check())
+                                                   {
+                                                    $item = \App\Models\Favourite::where(['user_id' => \Illuminate\Support\Facades\Auth::user()->id ,'product_id'=>$best_seller->product->id])->first() ? true : false ;
+                                                    if($item)
+                                                   {
+                                                       $class = 'active';
+                                                       $color = '#ffffff';
+                                                       $background = '#470938';
+                                                       $text = 'ازالة من المفضلة' ;
+                                                   }
+                                                   }
+
+                                            @endphp
+                                            <a href="#" class="favourite {{ $class }}" data-product_id="{{ $best_seller->product->id }}"
+                                               style="background-color: {{ $background }};color: {{ $color }}">
+                                                <i class='bx bx-heart'></i>
+                                                <span class="tooltip-label favourite_text">{{ $text }}</span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="quick-view-btn">
+                                            <a href="#" data-bs-toggle="modal" class="product-view"
+                                               data-bs-target="#productsQuickView" data-id="{{ $best_seller->product->id }}">
+                                                <i class='bx bx-search-alt'></i>
+                                                <span class="tooltip-label">مشاهدة سريعة</span>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <h3><a href="{{ route('site.product.index',['id'=>$best_seller->product->id,'name'=>str_replace(' ','_',$best_seller->product->name)]) }}">{{ $best_seller->product->name }}</a></h3>
+                            <div class="price">
+                                <span class="new-price"> {{ $best_seller->product->price }} {{ $currency }} </span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+
     <!-- Start Categories Area -->
     <section class="categories-area pb-40">
         <div class="container">
@@ -153,6 +231,28 @@
         </div>
     </section>
     <!-- End Categories Area -->
+
+    <!-- Start Companies Area -->
+    <section class="categories-area pb-40">
+        <div class="container">
+            <div class="section-title">
+                <h2>الشركات</h2>
+            </div>
+
+            <div class="row">
+                @foreach($companies as $company)
+                    <div class="col-lg-2 col-sm-4 col-md-4">
+                        <div class="single-categories-box">
+                            <img src="{{ $company->image  }}" alt="image">
+                            <h3>{{ $company->name  }}</h3>
+                            <a href="{{ route('site.company.index',['id'=>$company->id,'name'=>str_replace(' ','_',$company->name)]) }}" class="link-btn"></a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- End Companies Area -->
     @include('site.pages.product.modal')
 @endsection
 

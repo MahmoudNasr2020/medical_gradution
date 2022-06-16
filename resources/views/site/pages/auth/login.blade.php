@@ -91,8 +91,8 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-6 col-md-6 col-sm-6 remember-me-wrap">
                                         <p>
-                                            <input type="checkbox" name="remember_me" id="test2">
-                                            <label for="test2">تذكرني</label>
+                                            <input type="checkbox" name="remember_me" id="test">
+                                            <label for="test">تذكرني</label>
                                         </p>
                                     </div>
 

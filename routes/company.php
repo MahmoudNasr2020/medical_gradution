@@ -38,4 +38,5 @@ Route::group(['middleware'=>'auth:company'],function (){
     })->name('test');
 
     Route::get('orders', [OrderController::class,'index'])->name('orders.index');
+    Route::get('budget', [OrderController::class,'budget'])->name('budget.index');
 });

@@ -11,8 +11,8 @@ class LoginController extends Controller
 {
     public function loginCompany(LoginRequest $request)
     {
-        $remember_me = $request->has('remember_me') ? true : false;
-        if($user = Auth::guard('company')->attempt(['email'=>$request->email,'password'=>$request->password],$remember_me))
+        //$remember_me = $request->has('remember_me') ? true : false;
+        if($user = Auth::guard('company')->attempt(['email'=>$request->email,'password'=>$request->password]))
         {
             return redirect()->route('company.test');
         }
