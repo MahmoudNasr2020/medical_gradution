@@ -133,6 +133,7 @@
     </section>
 
     <!-- Start Products Area -->
+    @if($best_sellers->count() > 0)
     <section class="products-area pb-40">
         <div class="container">
             <div class="section-title">
@@ -209,6 +210,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     <!-- Start Categories Area -->
     <section class="categories-area pb-40">
