@@ -33,7 +33,7 @@
             <a href="{{ route('company.product.index') }}" class="col-12 px-0">
                 <div class="col-12 item px-0 d-flex " >
                     <div style="width: 50px" class="px-3 text-center">
-                        <span class="fal fa-tag font-3"> </span>
+                        <span class="fal fa-list font-3"> </span>
                     </div>
                     <div style="width: calc(100% - 50px)" class="px-2">
                         المنتجات
@@ -44,10 +44,10 @@
             <a href="{{ route('company.orders.index') }}" class="col-12 px-0">
                 <div class="col-12 item px-0 d-flex " >
                     <div style="width: 50px" class="px-3 text-center">
-                        <span class="fal fa-tag font-3"> </span>
+                        <span class="fal fa-file-invoice font-3"> </span>
                     </div>
                     <div style="width: calc(100% - 50px)" class="px-2">
-                        الطلبات
+                        المنتجات المباعة
                     </div>
                 </div>
             </a>

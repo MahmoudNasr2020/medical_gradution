@@ -20,7 +20,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/category/{id}/{name?}',[CategoryController::class,'index'])->name('category.index');
 
 //route Company
-Route::get('/company/{id}/{name?}',[CompanyController::class,'index'])->name('company.index');
+Route::get('/companies/{id}/{name?}',[CompanyController::class,'index'])->name('company.index');
 
 //route product
 Route::get('product/{id}/{name?}',[ProductController::class,'index'])->name('product.index');

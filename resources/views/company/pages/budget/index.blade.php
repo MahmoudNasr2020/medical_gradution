@@ -15,13 +15,21 @@
                 </div>
                 <div class="col-12 divider" style="min-height: 2px;"></div>
             </div>
-
             <div class="col-12 p-3" style="overflow:auto;text-align: center" >
                 <h4>
                     الرصيد الكلي
                 </h4>
                 <span><span dir="rtl" style=" font-size:25px;color: #1abc9c">
-                                {{ $old_price }} جنيه مصري
+                                {{ $total_price }} جنيه مصري
+                            </span></span>
+            </div>
+
+            <div class="col-12 p-3" style="overflow:auto;text-align: center" >
+                <h4>
+                    الرصيد القابل للسحب
+                </h4>
+                <span><span dir="rtl" style=" font-size:25px;color: #1abc9c">
+                                {{ $total_price }} جنيه مصري
                             </span></span>
             </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Company\Order;
 
 use App\Http\Controllers\Controller;
+use App\Models\BestSeller;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -13,62 +14,34 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::all();
-        $data_success = [];
-        $data_pending = [];
-        $old_product='';
-        foreach ($orders as $order) {
-            foreach (json_decode($order->order_list) as $item) {
-                if ($order->status == 'success')
-                {
-                    $product = Product::where(['id' => $item->product_id, 'company_id' => Auth::guard('company')->user()->id])->first();
-                    if ($product)
-                    {
-                        $product->quantity = $item->quantity;
-                        $product->total_price = $item->total_price;
-                        $product->price_product = $item->price_product;
-                        $product->status = $order->status;
-                        $product->order_created_at = $order->created_at;
-                        $product->order_updated_at = $order->updated_at;
-                        array_push($data_success,$product);
-
-                    }
-                }
-                elseif ($order->status == 'pending')
-                {
-                    $product = Product::where(['id' => $item->product_id, 'company_id' => Auth::guard('company')->user()->id])->first();
-                    if ($product)
-                    {
-                        $product->quantity = $item->quantity;
-                        $product->total_price = $item->total_price;
-                        $product->price_product = $item->price_product;
-                        $product->status = $order->status;
-                        $product->order_created_at = $order->created_at;
-                        $product->order_updated_at = $order->updated_at;
-                        array_push($data_pending,$product);
-                    }
-                }
+        $products = BestSeller::all();
+        $company_products=[];
+        foreach ($products as $product)
+        {
+            $item = Product::where(['id'=>$product->product_id,'company_id'=>Auth::guard('company')->user()->id])->first();
+            if($item)
+            {
+                $item->quantity = $product->quantity;
+                array_push($company_products,$item);
             }
         }
-        return view('company.pages.orders.index',compact('data_success','data_pending'));
+
+        return view('company.pages.orders.index',compact('company_products'));
     }
 
     public function budget()
     {
-        $orders = Order::all();
-        $old_price=0;
-        foreach ($orders as $order) {
-            foreach (json_decode($order->order_list) as $item) {
-                if ($order->status == 'success')
-                {
-                    $product = Product::where(['id' => $item->product_id, 'company_id' => Auth::guard('company')->user()->id])->first();
-                    if ($product)
-                    {
-                        $old_price = $old_price + $item->total_price;
-                    }
-                }
+        $products = BestSeller::all();
+        $company_products=[];
+        $total_price = 0;
+        foreach ($products as $product)
+        {
+            $item = Product::where(['id'=>$product->product_id,'company_id'=>Auth::guard('company')->user()->id])->first();
+            if($item)
+            {
+                $total_price = $total_price + ($product->quantity * $item->price);
             }
         }
-        return view('company.pages.budget.index',compact('old_price'));
+        return view('company.pages.budget.index',compact('total_price'));
     }
 }

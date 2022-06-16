@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Company\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 use App\Http\Traits\Image;
+use App\Models\BestSeller;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class ProductController extends Controller
     use Image;
     public function index()
     {
-        $products = Product::where('company_id',Auth::guard('company')->id())->with('category:id,category_name')->get();
+        $products = Product::where('company_id',Auth::guard('company')->user()->id)->with('category:id,category_name')->get();
         return view('company.pages.product.index',compact('products'));
     }
     public function create()
