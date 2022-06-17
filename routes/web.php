@@ -7,6 +7,7 @@ use App\Http\Controllers\Site\Category\CategoryController;
 use App\Http\Controllers\Site\Checkout\CheckoutController;
 use App\Http\Controllers\Site\Checkout\InvoiceController;
 use App\Http\Controllers\Site\Company\CompanyController;
+use App\Http\Controllers\Site\Contact\ContactController;
 use App\Http\Controllers\Site\Favourite\FavouriteController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\Product\ProductController;
@@ -25,6 +26,11 @@ Route::get('/companies/{id}/{name?}',[CompanyController::class,'index'])->name('
 //route product
 Route::get('product/{id}/{name?}',[ProductController::class,'index'])->name('product.index');
 Route::post('/getProduct',[ProductController::class,'getProduct'])->name('product.getProduct');
+
+//contact route
+Route::view('contact','site.pages.contact.contact');
+Route::post('contact/send',[ContactController::class,'send'])->name('contact.send');
+
 
 //route guest
 Route::group(['middleware'=>'guest'],function (){

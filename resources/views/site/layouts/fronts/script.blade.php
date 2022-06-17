@@ -35,6 +35,15 @@
         });
     @endif
 
+    @if(\Illuminate\Support\Facades\Session::has('msgContact') && \Illuminate\Support\Facades\Session::get('msgContact') == 'success')
+        Swal.fire({
+            icon: 'success',
+            title: 'تمت',
+            text: 'تم الارسال بنجاح',
+            confirmButtonText: 'موافق',
+        });
+    @endif
+
     @if(\Illuminate\Support\Facades\Session::has('login_error') )
         Swal.fire({
             icon: 'error',
