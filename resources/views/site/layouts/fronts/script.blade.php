@@ -44,6 +44,15 @@
         });
     @endif
 
+    @if(\Illuminate\Support\Facades\Session::has('msgupdate') && \Illuminate\Support\Facades\Session::get('msgupdate') == 'success')
+        Swal.fire({
+            icon: 'success',
+            title: 'تمت',
+            text: 'تم التعديل بنجاح',
+            confirmButtonText: 'موافق',
+        });
+    @endif
+
     @if(\Illuminate\Support\Facades\Session::has('login_error') )
         Swal.fire({
             icon: 'error',

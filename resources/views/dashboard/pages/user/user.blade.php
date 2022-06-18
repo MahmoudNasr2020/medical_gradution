@@ -23,31 +23,28 @@
                             <thead>
                             <tr>
                                 <th style="text-align: center">#</th>
-                                <th style="text-align: center">اسم المنتج</th>
-                                <th style="text-align: center">اسم القسم</th>
-                                <th style="text-align: center">اسم الشركة</th>
-                                <th style="text-align: center">السعر</th>
-                                <th style="text-align: center">بلد الانتاج</th>
-                                <th style="text-align: center"> الكمية المباعة</th>
+                                <th style="text-align: center">الاسم</th>
+                                <th style="text-align: center">البريد</th>
+                                <th style="text-align: center">رقم الموبايل</th>
                                 <th style="text-align: center">تم الانشاء</th>
                                 <th style="text-align: center">تم التعديل</th>
                                 <th style="text-align: center">تحكم</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($products as $k=>$product)
+                            @foreach($users as $k=>$user)
                                 <tr>
                                     <td style="text-align: center">{{ $k+1 }}</td>
-                                    <td style="text-align: center">{{$product->name}}</td>
-                                    <td style="text-align: center">{{ $product->category->category_name }}</td>
-                                    <td style="text-align: center">{{ $product->company->name }}</td>
-                                    <td style="text-align: center">{{$product->price}} جنيه</td>
+                                    <td style="text-align: center">{{$user->name}}</td>
+                                    <td style="text-align: center">{{ $user->category->category_name }}</td>
+                                    <td style="text-align: center">{{ $user->company->name }}</td>
+                                    <td style="text-align: center">{{$user->price}} جنيه</td>
                                     <td style="text-align: center">{{$product->production_country}}</td>
                                     <td style="text-align: center">
-                                            @php
-                                                $product_seller = \App\Models\BestSeller::where('product_id',$product->id)->select('quantity')->first();
-                                            @endphp
-                                    {{  $product_seller ? $product_seller->quantity : 0 }}</td>
+                                        @php
+                                            $product_seller = \App\Models\BestSeller::where('product_id',$product->id)->select('quantity')->first();
+                                        @endphp
+                                        {{  $product_seller ? $product_seller->quantity : 0 }}</td>
                                     <td style="text-align: center">{{$product->created_at}}</td>
                                     <td style="text-align: center">{{$product->updated_at}}</td>
 

@@ -22,6 +22,9 @@ Route::group(['middleware'=>'guest:company'],function (){
 //route auth
 Route::group(['middleware'=>'auth:company'],function (){
 
+    //home company
+    Route::view('home','company.home')->name('home');
+
     //logout company
     Route::post('logout',[LoginController::class,'logoutCompany'])->name('logout');
 
@@ -34,9 +37,7 @@ Route::group(['middleware'=>'auth:company'],function (){
     Route::post('product/update/{id}', [ProductController::class,'update'])->name('product.update');
     Route::delete('product/destroy/{id}', [ProductController::class,'destroy'])->name('product.destroy');
 
-    Route::get('test',function (){
-        return view('company.test');
-    })->name('test');
+
 
     Route::get('orders', [OrderController::class,'index'])->name('orders.index');
     Route::get('budget', [OrderController::class,'budget'])->name('budget.index');

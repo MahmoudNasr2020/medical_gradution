@@ -23,7 +23,7 @@ class RegisterController extends Controller
         if($user)
         {
             Auth::guard('company')->login($user);
-            return redirect()->route('company.test');
+            return redirect()->route('company.home');
         }
         return abort(404) ;
     }

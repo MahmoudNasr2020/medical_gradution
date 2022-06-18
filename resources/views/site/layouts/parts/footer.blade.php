@@ -30,7 +30,7 @@
                     <ul class="link-list">
                         <li><a href="{{ route('site.home') }}">الرئيسية</a></li>
                         <li><a href="#">عنا</a></li>
-                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="{{ route('site.contact.index') }}">اتصل بنا</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <h3>العملاء</h3>
 
                     <ul class="link-list">
-                        <li><a href="#">حسابي</a></li>
+                        <li><a href="{{ route('site.profile.index') }}">حسابي</a></li>
                         <li><a href="{{ route('site.order.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,'name'=>str_replace(' ','_',\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->name : 'NAN')]) }}">طلباتي</a></li>
                         <li><a href="{{ route('site.cart.index',['id'=>\Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->id : 0,
                                                     'name'=>\Illuminate\Support\Facades\Auth::check() ? str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name) : 'name']) }}">عربة التسوق</a></li>

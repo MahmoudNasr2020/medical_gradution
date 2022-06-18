@@ -49,7 +49,10 @@
                         <ul class="products-info">
                             <li><span>القسم : </span> <a href="#">{{ $product->category->category_name }}</a></li>
                             <li><span>البلد المنتجة : </span> <a href="#">{{ $product->production_country }}</a></li>
-                            <li><span>عدد مرات البيع : </span> <a href="#">0</a></li>
+
+                            <li><span>الكمية المباعة : </span> <a href="#">
+                            {{ $product_seller = \App\Models\BestSeller::where('product_id',$product->id)->select('quantity')->first()->quantity }}
+                            </a></li>
                         </ul>
                     </div>
                 </div>

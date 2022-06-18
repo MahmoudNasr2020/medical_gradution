@@ -86,7 +86,7 @@
                                         كلمة السر
                                     </div>
                                     <div class="col-12 pt-3">
-                                        <input type="password" name="password"  class="form-control" >
+                                        <input type="password" name="password"  class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                                          تاكيد كلمة السر
                                     </div>
                                     <div class="col-12 pt-3">
-                                        <input type="password" name="password"  class="form-control">
+                                        <input type="password" name="password_confirmation"  class="form-control">
                                     </div>
                                 </div>
                             </div>

@@ -14,12 +14,14 @@
                     @if(\Illuminate\Support\Facades\Auth::check())
                         <li>
                             <div class="dropdown currency-switcher d-inline-block">
+
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span>{{ \Illuminate\Support\Facades\Auth::user()->name }} <i class="bx bx-chevron-down"></i></span>
                                 </button>
 
                                 <div class="dropdown-menu">
                                     <a href="{{ route('site.order.index',['id'=>\Illuminate\Support\Facades\Auth::user()->id,'name'=>str_replace(' ','_',\Illuminate\Support\Facades\Auth::user()->name)]) }}" class="dropdown-item">طلباتي</a>
+                                    <a href="{{ route('site.profile.index') }}" class="dropdown-item">الملف الشخصي</a>
                                     <a href="#" class="dropdown-item" onclick="var form = document.getElementById('form_logout').submit()">تسجيل الخروج</a>
                                     <form class="d-none" method="POST" action="{{ route('site.logout') }}" id="form_logout">
                                         @csrf
@@ -105,7 +107,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item"><a href="#" class="nav-link">اتصل بنا</a></li>
+                        <li class="nav-item"><a href="{{ route('site.contact.index') }}" class="nav-link">اتصل بنا</a></li>
                     </ul>
 
                     <div class="others-option">

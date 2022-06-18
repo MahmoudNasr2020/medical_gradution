@@ -19,7 +19,7 @@
     <div class="col-12 px-0">
         <div class="col-12 px-0 aside-menu" style="height: calc(100vh - 250px);overflow: auto;">
 
-            <a href="" class="col-12 px-0">
+            <a href="{{ route('company.home') }}" class="col-12 px-0">
                 <div class="col-12 item px-0 d-flex" >
                     <div style="width: 50px" class="px-3 text-center">
                         <span class="fal fa-home font-3"> </span>

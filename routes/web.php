@@ -11,7 +11,9 @@ use App\Http\Controllers\Site\Contact\ContactController;
 use App\Http\Controllers\Site\Favourite\FavouriteController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\Product\ProductController;
+use App\Http\Controllers\Site\Profile\ProfileController;
 use App\Http\Controllers\Site\User\OrderController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 //route home
@@ -28,7 +30,7 @@ Route::get('product/{id}/{name?}',[ProductController::class,'index'])->name('pro
 Route::post('/getProduct',[ProductController::class,'getProduct'])->name('product.getProduct');
 
 //contact route
-Route::view('contact','site.pages.contact.contact');
+Route::view('contact','site.pages.contact.contact')->name('contact.index');
 Route::post('contact/send',[ContactController::class,'send'])->name('contact.send');
 
 
@@ -46,6 +48,14 @@ Route::group(['middleware'=>'guest'],function (){
 
 //auth user route
 Route::group(['middleware'=>'auth'],function () {
+
+    //profile route
+    Route::view('profile','site.pages.profile.index')->name('profile.index');
+    Route::view('profile/edit','site.pages.profile.edit')->name('profile.edit');
+    Route::post('profile/update',[ProfileController::class,'update'])->name('profile.update');
+
+
+
      //logout user route
     Route::post('logout',[LoginController::class,'logoutUser'])->name('logout');
 
@@ -72,3 +82,14 @@ Route::group(['middleware'=>'auth'],function () {
 
 });
 
+
+
+Route::get('getData',function (){
+    $data = Http::get('https://medical-graduation.nsr.digital/api/best_sellers');
+     $data =  json_decode($data) ;
+    foreach ($data->products as $item)
+    {
+        echo $item->product_id.'<br>';
+    }
+
+});

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Company\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\UpdateCategoryRequest;
+use App\Http\Requests\Site\Company\Product\EditProductRequest;
+use App\Http\Requests\Site\Company\Product\StoreProductRequest;
 use App\Http\Traits\Image;
 use App\Models\BestSeller;
 use App\Models\Category;
@@ -26,7 +28,7 @@ class ProductController extends Controller
         return view('company.pages.product.create',compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
         if($request->hasFile('image'))
         {
@@ -65,7 +67,7 @@ class ProductController extends Controller
         return view('company.pages.product.edit',compact('data','categories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(EditProductRequest $request, $id)
     {
         $product = Product::findOrFail($id);
         $data = $request->all();

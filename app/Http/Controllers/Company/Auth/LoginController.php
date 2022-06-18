@@ -14,7 +14,7 @@ class LoginController extends Controller
         //$remember_me = $request->has('remember_me') ? true : false;
         if($user = Auth::guard('company')->attempt(['email'=>$request->email,'password'=>$request->password]))
         {
-            return redirect()->route('company.test');
+            return redirect()->route('company.home');
         }
         return redirect()->route('site.loginUser')->with(['login_error'=>'خطأ في بيانات الدخول']);
     }
