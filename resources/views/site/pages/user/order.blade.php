@@ -154,6 +154,7 @@
                                                         <div class="btn btn-outline-primary">في الانتظار</div>
                                                     @endif
                                                 </td>
+
                                             </tr>
                                         @endforeach
                                         </tbody>

@@ -81,15 +81,3 @@ Route::group(['middleware'=>'auth'],function () {
     Route::post('/favourite/delete', [FavouriteController::class,'delete'])->name('favourite.delete'); //delete favourite
 
 });
-
-
-
-Route::get('getData',function (){
-    $data = Http::get('https://medical-graduation.nsr.digital/api/best_sellers');
-     $data =  json_decode($data) ;
-    foreach ($data->products as $item)
-    {
-        echo $item->product_id.'<br>';
-    }
-
-});

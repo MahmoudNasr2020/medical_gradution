@@ -17,10 +17,7 @@ class CheckoutController extends Controller
     public function index($id)
     {
 
-        /*
-        Http::post('https://accept.paymob.com/api/auth/tokens');
 
-         * */
         User::findOrFail($id);
         $carts = Cart::where('user_id',Auth::user()->id)->get();
         return view('site.pages.checkout.index',compact('carts'));
