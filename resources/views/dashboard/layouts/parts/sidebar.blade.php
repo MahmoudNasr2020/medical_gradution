@@ -44,7 +44,7 @@
             <a href="{{ route('dashboard.product.index') }}" class="col-12 px-0">
                 <div class="col-12 item px-0 d-flex " >
                     <div style="width: 50px" class="px-3 text-center">
-                        <span class="fal fa-tag font-3"> </span>
+                        <span class="fal fa-list font-3"> </span>
                     </div>
                     <div style="width: calc(100% - 50px)" class="px-2">
                         المنتجات
@@ -67,76 +67,13 @@
             <a href="{{ route('dashboard.company.index') }}" class="col-12 px-0">
                     <div class="col-12 item px-0 d-flex " >
                         <div style="width: 50px" class="px-3 text-center">
-                            <span class="fal fa-users font-3"> </span>
+                            <span class="fal fa-building font-3"> </span>
                         </div>
                         <div style="width: calc(100% - 50px)" class="px-2">
                             الشركات
                         </div>
                     </div>
                 </a>
-
-
-                <a href="" class="col-12 px-0">
-                    <div class="col-12 item px-0 d-flex " >
-                        <div style="width: 50px" class="px-3 text-center">
-                            <span class="fal fa-newspaper font-3"> </span>
-                        </div>
-                        <div style="width: calc(100% - 50px)" class="px-2">
-                            المقالات
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a href="" class="col-12 px-0">
-                    <div class="col-12 item px-0 d-flex " >
-                        <div style="width: 50px" class="px-3 text-center">
-                            <span class="fal fa-bullhorn font-3"> </span>
-                        </div>
-                        <div style="width: calc(100% - 50px)" class="px-2">
-                            الإعلانات
-                        </div>
-                    </div>
-                </a>
-
-
-
-                <a href="" class="col-12 px-0">
-                    <div class="col-12 item px-0 d-flex " >
-                        <div style="width: 50px" class="px-3 text-center">
-                            <span class="fal fa-file-invoice font-3"> </span>
-                        </div>
-                        <div style="width: calc(100% - 50px)" class="px-2">
-                            الصفحات
-                        </div>
-                    </div>
-                </a>
-
-
-                <a href="" class="col-12 px-0">
-                    <div class="col-12 item px-0 d-flex " >
-                        <div style="width: 50px" class="px-3 text-center">
-                            <span class="fal fa-list font-3"> </span>
-                        </div>
-                        <div style="width: calc(100% - 50px)" class="px-2">
-                            القوائم
-                        </div>
-                    </div>
-                </a>
-
-
-                <a href="" class="col-12 px-0">
-                    <div class="col-12 item px-0 d-flex " >
-                        <div style="width: 50px" class="px-3 text-center">
-                            <span class="fal fa-question font-3"> </span>
-                        </div>
-                        <div style="width: calc(100% - 50px)" class="px-2">
-                            الأسئلة الشائعة
-                        </div>
-                    </div>
-                </a>
-
 
                 <a href="" class="col-12 px-0">
                     <div class="col-12 item px-0 d-flex " >

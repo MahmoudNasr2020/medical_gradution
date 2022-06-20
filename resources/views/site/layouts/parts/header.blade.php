@@ -4,8 +4,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-7">
                 <ul class="top-header-contact-info">
-                    <li><i class='bx bx-phone-call'></i> <a href="tel:+1234567898">(+123) 456-7898</a></li>
-                    <li><i class='bx bx-map'></i> <a href="#" target="_blank">المعهد العالي للهندسة , مدينة الثقافة والعلوم , 6 اكتوبر</a></li>
+                    <li> <a href="#">طبيات, اختيارك الذكي</a></li>
                 </ul>
             </div>
 

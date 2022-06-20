@@ -81,3 +81,10 @@ Route::group(['middleware'=>'auth'],function () {
     Route::post('/favourite/delete', [FavouriteController::class,'delete'])->name('favourite.delete'); //delete favourite
 
 });
+
+
+Route::get('clear',function(){
+    \App\Models\BestSeller::truncate();
+    \App\Models\Order::truncate();
+    \App\Models\Product::truncate();
+});

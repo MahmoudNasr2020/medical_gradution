@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Company;
 
 use App\Http\Controllers\Controller;
+use App\Models\BestSeller;
 use App\Models\Company;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -24,6 +25,10 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         $data = Company::findOrFail($id);
+        foreach ($data->products as $product)
+        {
+            BestSeller::where('product_id',$product->id)->first()->delete();
+        }
         $data->products()->delete();
         $data->delete();
         flash('تم حذف الشركة بنجاح','alert alert-danger');

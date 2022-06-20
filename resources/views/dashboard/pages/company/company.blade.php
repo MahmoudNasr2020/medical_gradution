@@ -1,4 +1,11 @@
 @extends('dashboard.layouts.index')
+@section('styles')
+    <style>
+        .relative{
+            display: none !important;
+        }
+    </style>
+@endsection
 
 @section('content')
     <div class="col-12 p-3">
@@ -68,8 +75,12 @@
                                     </td>
                                 </tr>
                             @endforeach
+
                             </tbody>
                         </table>
+                        <div class="col-12 p-3">
+                            {{ $companies->links() }}
+                        </div>
                     @else
 
                         <div class="font-3" style="text-align: center">
