@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::get();
         return view('dashboard.pages.user.user',compact('users'));
     }
 
@@ -43,5 +43,15 @@ class UserController extends Controller
             $order->update(['status'=>$request->order_status]);
             return 'done';
         }
+    }
+
+    public function invoice($order_id)
+    {
+        $order = Order::where('order_id',$order_id)->first();
+        if(!$order)
+        {
+            return abort(404);
+        }
+        return view('dashboard.pages.user.invoice',compact('order'));
     }
 }

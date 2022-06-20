@@ -7,7 +7,7 @@
             <div class="col-12 px-0">
                 <div class="col-12 p-0 row">
                     <div class="col-12 col-lg-4 py-3 px-3">
-                        <span class="fas fa-categories"></span> المستخدم - <span style="font-weight: bold"> {{ $user->name }}</span>
+                        <span class="fas fa-categories"></span> الطلبات - <span style="font-weight: bold"> {{ $user->name }}</span>
                     </div>
                     <div class="col-12 col-lg-4 p-2">
                     </div>
@@ -17,7 +17,10 @@
 
             <div class="col-12 p-3" style="overflow:auto">
                 <div class="col-12 p-0" >
-
+                    @php
+                        $user_products = 0;
+                        $array_user = [];
+                    @endphp
                     @if($user->orders->count() > 0)
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -41,13 +44,20 @@
                                     {{$k+1}}
                                 </td>
                                     <td class="product-id">
-                                        <a href="">
+                                        <a href="{{ route('dashboard.user.invoice',['order_id'=>$order->order_id,'name'=>str_replace(' ','_',$order->user->name)]) }}">
                                             {{ $order->order_id }}
                                         </a>
                                     </td>
 
                                     <td class="product-name">
                                         @foreach(json_decode($order->order_list) as $item)
+                                            @php
+                                              if(!in_array($item->product_id,$array_user))
+                                                {
+                                                    $user_products++;
+                                                    array_push($array_user,$item->product_id);
+                                                }
+                                            @endphp
                                             {{ \App\Models\Product::where('id',$item->product_id)->first() ? \App\Models\Product::where('id',$item->product_id)->first()->name  : 'غير موجود' }}
                                             @if(!$loop->last)
                                                 <br><hr>
@@ -140,6 +150,41 @@
                         </div>
                     @endif
                 </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-12 p-3">
+        <div class="col-12 col-lg-12 p-0 main-box">
+
+            <div class="col-12 px-0">
+                <div class="col-12 p-0 row">
+                    <div class="col-12 col-lg-4 py-3 px-3">
+                        <span class="fas fa-categories"></span> نشاط المستخدم
+                    </div>
+
+                    <div class="col-12 col-lg-4 p-2">
+                    </div>
+                </div>
+                <div class="col-12 divider" style="min-height: 2px;"></div>
+            </div>
+            <div class="col-12 p-3" style="overflow:auto;text-align: center" >
+                <h4>
+                     عدد المنتجات التي تم شراؤها
+                </h4>
+                <span><span dir="rtl" style=" font-size:25px;color: #1abc9c">
+                                {{ $user_products  }}
+                            </span></span>
+            </div>
+
+            <div class="col-12 p-3" style="overflow:auto;text-align: center" >
+                <h4>
+                   اجمالي المبلغ المدفوع
+                </h4>
+                <span><span dir="rtl" style=" font-size:25px;color: #1abc9c">
+                                {{ \App\Models\Order::where('user_id',$user->id)->get()->sum('total_price') ? \App\Models\Order::where('user_id',$user->id)->get()->sum('total_price') .' جنيه مصري' : 'غير موجود' }}
+                            </span></span>
             </div>
 
         </div>
