@@ -84,7 +84,5 @@ Route::group(['middleware'=>'auth'],function () {
 
 
 Route::get('clear',function(){
-    \App\Models\BestSeller::truncate();
-    \App\Models\Order::truncate();
-    \App\Models\Product::truncate();
+   return \App\Models\User::all();
 });

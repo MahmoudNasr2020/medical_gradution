@@ -75,7 +75,40 @@
                     </div>
                 </a>
 
-                <a href="" class="col-12 px-0">
+            <a href="{{ route('dashboard.order.index') }}" class="col-12 px-0">
+                <div class="col-12 item px-0 d-flex " >
+                    <div style="width: 50px" class="px-3 text-center">
+                        <span class="fal fa-building font-3"> </span>
+                    </div>
+                    <div style="width: calc(100% - 50px)" class="px-2">
+                        الطلبات
+                    </div>
+                </div>
+            </a>
+
+                <a href="{{ route('dashboard.contact.index') }}" class="col-12 px-0">
+                    <div class="col-12 item px-0 d-flex " >
+                        <div style="width: 50px" class="px-3 text-center">
+                            <span class="fal fa-phone font-3"> </span>
+                        </div>
+                        <div style="width: calc(100% - 50px)" class="px-2">
+                            اتصل بنا
+                        </div>
+                    </div>
+                </a>
+
+            <a href="{{ route('dashboard.admin.index') }}" class="col-12 px-0">
+                <div class="col-12 item px-0 d-flex " >
+                    <div style="width: 50px" class="px-3 text-center">
+                        <span class="fal fa-user font-3"> </span>
+                    </div>
+                    <div style="width: calc(100% - 50px)" class="px-2">
+                        المسؤولين
+                    </div>
+                </div>
+            </a>
+
+            <a href="{{ route('dashboard.setting.index') }}" class="col-12 px-0">
                     <div class="col-12 item px-0 d-flex " >
                         <div style="width: 50px" class="px-3 text-center">
                             <span class="fal fa-wrench font-3"> </span>

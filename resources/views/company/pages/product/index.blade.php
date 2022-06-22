@@ -62,7 +62,7 @@
                                                 <span class="fas fa-pen "></span> تعديل
                                             </span>
                                         </a>
-                                        <form method="POST" action="{{ route('dashboard.product.destroy',$product->id) }}" class="d-inline-block mt-2">
+                                        <form method="POST" action="{{ route('company.product.destroy',$product->id) }}" class="d-inline-block mt-2">
                                             @csrf
                                             @method("DELETE")
                                             <button class="btn  btn-outline-danger btn-sm font-1 mx-1" type="submit"

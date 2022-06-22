@@ -1,11 +1,4 @@
 @extends('dashboard.layouts.index')
-@section('styles')
-    <style>
-        .relative{
-            display: none !important;
-        }
-    </style>
-@endsection
 
 @section('content')
     <div class="col-12 p-3">
@@ -14,7 +7,7 @@
             <div class="col-12 px-0">
                 <div class="col-12 p-0 row">
                     <div class="col-12 col-lg-4 py-3 px-3">
-                        <span class="fas fa-categories"></span> المستخدمين
+                        <span class="fas fa-categories"></span> الشركات
                     </div>
                     <div class="col-12 col-lg-4 p-2">
                     </div>
@@ -78,9 +71,7 @@
 
                             </tbody>
                         </table>
-                        <div class="col-12 p-3">
-                            {{ $companies->links() }}
-                        </div>
+
                     @else
 
                         <div class="font-3" style="text-align: center">
