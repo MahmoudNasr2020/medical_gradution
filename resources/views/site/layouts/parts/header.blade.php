@@ -4,7 +4,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-7">
                 <ul class="top-header-contact-info">
-                    <li> <a href="#">طبيات, اختيارك الذكي</a></li>
+                    <li> <a href="#">{{ settings()->site_name }}, اختيارك الذكي</a></li>
                 </ul>
             </div>
 
@@ -59,7 +59,7 @@
             <div class="drodo-responsive-menu">
                 <div class="logo">
                     <a href="{{ route('site.home') }}">
-                        <img src="{{ asset('images/logo.png') }}" style="height: 80px !important;" alt="logo">
+                        <img src="{{ settings()->logo }}" style="height: 80px !important;" alt="logo">
                     </a>
                 </div>
             </div>
@@ -178,8 +178,8 @@
             </div>
 
             <div class="search-overlay-form">
-                <form>
-                    <input type="text" class="input-search" placeholder="Search here...">
+                <form method="GET"  action="{{ route('site.search') }}">
+                    <input type="text" name="name" class="input-search" placeholder="ابحث هنا عن المنتجات....">
                     <button type="submit"><i class='bx bx-search-alt'></i></button>
                 </form>
             </div>

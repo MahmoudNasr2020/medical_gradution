@@ -58,11 +58,14 @@
                             مستخدم  <i class="bx bx-user" style="font-size: 19px; position: relative; top: 3px;right: 8px;"></i>
                         </button>
                     </li>
-                    <li class="nav-item settings-tab-opener" role="presentation" style="margin-left: 10px">
-                        <button class="nav-link" id="company-tab" data-bs-toggle="tab" data-bs-target="#company-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                            شركة
-                            <i class="bx bx-building" style="font-size: 19px;position: relative;top: 3px;right: 8px;"></i></button>
-                    </li>
+                    @if(!\Illuminate\Support\Facades\Auth::guard('company')->check())
+                        <li class="nav-item settings-tab-opener" role="presentation" style="margin-left: 10px">
+                            <button class="nav-link" id="company-tab" data-bs-toggle="tab" data-bs-target="#company-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                                شركة
+                                <i class="bx bx-building" style="font-size: 19px;position: relative;top: 3px;right: 8px;"></i></button>
+                        </li>
+                    @endif
+
                 </ul>
 
                 <div class="tab-content" id="myTabContent">
@@ -102,41 +105,44 @@
                             </form>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="company-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                        <div class="login-form">
-                            <h2>شركة </h2>
-                            <form method="POST" action="{{ route('company.login.store') }}">
-                                @csrf
-                                <div class="form-group">
-                                    <label>البريد</label>
-                                    <input type="text" class="form-control" name="email" placeholder="ادخل البريد الالكتروني" style="text-align: right;">
-                                    @error('email')
-                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
-                                    @enderror
-                                </div>
 
-                                <div class="form-group">
-                                    <label>كلمة السر</label>
-                                    <input type="password" class="form-control" name="password" placeholder="ادخل كلمة السر">
-                                    @error('password')
-                                    <div style="color: red;margin-top: 5px">{{ $message }}*</div>
-                                    @enderror
-                                </div>
-
-                                <div class="row align-items-center">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 remember-me-wrap">
-                                        <p>
-                                            <input type="checkbox" name="remember_me" id="test2">
-                                            <label for="test2">تذكرني</label>
-                                        </p>
+                    @if(!\Illuminate\Support\Facades\Auth::guard('company')->check())
+                        <div class="tab-pane fade" id="company-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                            <div class="login-form">
+                                <h2>شركة </h2>
+                                <form method="POST" action="{{ route('company.login.store') }}">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label>البريد</label>
+                                        <input type="text" class="form-control" name="email" placeholder="ادخل البريد الالكتروني" style="text-align: right;">
+                                        @error('email')
+                                        <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                        @enderror
                                     </div>
 
-                                </div>
+                                    <div class="form-group">
+                                        <label>كلمة السر</label>
+                                        <input type="password" class="form-control" name="password" placeholder="ادخل كلمة السر">
+                                        @error('password')
+                                        <div style="color: red;margin-top: 5px">{{ $message }}*</div>
+                                        @enderror
+                                    </div>
 
-                                <button type="submit">دخول</button>
-                            </form>
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 remember-me-wrap">
+                                            <p>
+                                                <input type="checkbox" name="remember_me" id="test2">
+                                                <label for="test2">تذكرني</label>
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <button type="submit">دخول</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -11,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('dashboard/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('dashboard/css/main.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <title>لوحة تحكم | الشركات</title>
+    <link rel="icon" type="image/png" href="{{ settings()->logo }}" >
+    <title>{{ settings()->site_name }} | الشركات</title>
     @php
         $page_title="لوحة التحكم";
     @endphp

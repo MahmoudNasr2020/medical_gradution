@@ -19,6 +19,7 @@ class SettingController extends Controller
             $data['logo'] = $this->imageUpload('settings',$request->logo);
         }
        $data['site_name'] = $request->site_name;
+       $data['commission'] = $request->commission;
         Setting::orderBy('id','desc')->update($data);
         flash('تم الحفظ بنجاح','alert alert-primary');
         return back();

@@ -26,18 +26,36 @@
                                 <th style="text-align: center">الاسم</th>
                                 <th style="text-align: center">البريد</th>
                                 <th style="text-align: center">رقم الموبايل</th>
+                                <th style="text-align: center">ارباحنا</th>
                                 <th style="text-align: center">تم الانشاء</th>
                                 <th style="text-align: center">تم التعديل</th>
                                 <th style="text-align: center">تحكم</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $products = \App\Models\BestSeller::all();
+                            @endphp
                             @foreach($companies as $k=>$company)
                                 <tr>
                                     <td style="text-align: center">{{ $k+1 }}</td>
                                     <td style="text-align: center">{{$company->name}}</td>
                                     <td style="text-align: center">{{ $company->email }}</td>
                                     <td style="text-align: center">{{ $company->phone_number }}</td>
+                                    <td style="text-align: center">
+                                        @php
+                                            $total_price = 0;
+                                            foreach ($products as $product)
+                                            {
+                                                $item = \App\Models\Product::where(['id'=>$product->product_id,'company_id'=>$company->id])->first();
+                                                if($item)
+                                                {
+                                                    $total_price = $total_price + ($product->quantity * $item->price);
+                                                }
+                                            }
+                                        @endphp
+                                        {{ $total_price * (settings()->commission / 100) }} جنيه
+                                    </td>
                                     <td style="text-align: center">{{$company->created_at}}</td>
                                     <td style="text-align: center">{{$company->updated_at}}</td>
 

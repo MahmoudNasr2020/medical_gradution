@@ -30,6 +30,18 @@
                             <div class="col-12 p-3 row">
                                 <div class="col-12 col-lg-12 p-2">
                                     <div class="col-12">
+                                        العمولة %
+                                    </div>
+                                    <div class="col-12 pt-3">
+                                        <input type="text" name="commission" required  class="form-control"
+                                               value="{{ settings()->commission }}" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 p-3 row">
+                                <div class="col-12 col-lg-12 p-2">
+                                    <div class="col-12">
                                         اللوجو
                                     </div>
                                     <div class="col-12 pt-3">

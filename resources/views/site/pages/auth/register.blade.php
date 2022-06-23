@@ -58,11 +58,13 @@
                             مستخدم  <i class="bx bx-user" style="font-size: 19px; position: relative; top: 3px;right: 8px;"></i>
                         </button>
                     </li>
+                    @if(!\Illuminate\Support\Facades\Auth::guard('company')->check())
                     <li class="nav-item settings-tab-opener" role="presentation" style="margin-left: 10px">
                         <button class="nav-link" id="company-tab" data-bs-toggle="tab" data-bs-target="#company-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
                             شركة
                             <i class="bx bx-building" style="font-size: 19px;position: relative;top: 3px;right: 8px;"></i></button>
                     </li>
+                    @endif
                 </ul>
 
                 <div class="tab-content" id="myTabContent">
@@ -121,6 +123,8 @@
                             </form>
                         </div>
                     </div>
+
+                    @if(!\Illuminate\Support\Facades\Auth::guard('company')->check())
                     <div class="tab-pane fade" id="company-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                         <div class="login-form">
                             <h2>شركة جديده</h2>
@@ -176,6 +180,7 @@
                             </form>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

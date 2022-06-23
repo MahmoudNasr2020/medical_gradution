@@ -10,7 +10,7 @@
     </div>
     <div class="col-12 px-0 py-5 text-center justify-content-center align-items-center ">
         <a href="">
-            <img src="{{ asset('dashboard/images/default/admin.png') }}" style="width: 40px;height: 40px;color: #fff;border-radius: 50%" class="d-inline-block">
+            <img src="{{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->image }}" style="width: 40px;height: 40px;color: #fff;border-radius: 50%" class="d-inline-block">
         </a>
         <div class="col-12 px-0 mt-2" style="color: #fff">
             مرحباً
@@ -19,7 +19,7 @@
     <div class="col-12 px-0">
         <div class="col-12 px-0 aside-menu" style="height: calc(100vh - 250px);overflow: auto;">
 
-            <a href="" class="col-12 px-0">
+            <a href="{{ route('dashboard.home') }}" class="col-12 px-0">
                 <div class="col-12 item px-0 d-flex" >
                     <div style="width: 50px" class="px-3 text-center">
                         <span class="fal fa-home font-3"> </span>
@@ -78,7 +78,7 @@
             <a href="{{ route('dashboard.order.index') }}" class="col-12 px-0">
                 <div class="col-12 item px-0 d-flex " >
                     <div style="width: 50px" class="px-3 text-center">
-                        <span class="fal fa-building font-3"> </span>
+                        <span class="fal fa-cart-arrow-down font-3"> </span>
                     </div>
                     <div style="width: calc(100% - 50px)" class="px-2">
                         الطلبات
@@ -108,6 +108,17 @@
                 </div>
             </a>
 
+            <a href="{{ route('dashboard.budget.index') }}" class="col-12 px-0">
+                <div class="col-12 item px-0 d-flex " >
+                    <div style="width: 50px" class="px-3 text-center">
+                        <span class="fal fa-badge-dollar font-3"> </span>
+                    </div>
+                    <div style="width: calc(100% - 50px)" class="px-2">
+                        المحفظة
+                    </div>
+                </div>
+            </a>
+
             <a href="{{ route('dashboard.setting.index') }}" class="col-12 px-0">
                     <div class="col-12 item px-0 d-flex " >
                         <div style="width: 50px" class="px-3 text-center">
@@ -118,6 +129,8 @@
                         </div>
                     </div>
                 </a>
+
+
 
         </div>
     </div>

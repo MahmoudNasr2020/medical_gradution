@@ -14,8 +14,8 @@
 <link rel="stylesheet" href="{{ asset('site/assets/css/rtl.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.17/dist/sweetalert2.min.css">
 
-<title>طبيات</title>
+<title>{{ settings()->site_name }}</title>
 @yield('style')
 <title>Drodo - Emergency Medical Supply HTML Template</title>
 
-<link rel="icon" type="image/png" href="{{ asset('images/logo2.jpg') }}" >
+<link rel="icon" type="image/png" href="{{ settings()->logo }}" >

@@ -12,12 +12,16 @@ use App\Http\Controllers\Site\Favourite\FavouriteController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\Product\ProductController;
 use App\Http\Controllers\Site\Profile\ProfileController;
+use App\Http\Controllers\Site\Search\SearchController;
 use App\Http\Controllers\Site\User\OrderController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 //route home
 Route::get('/',[HomeController::class,'index'])->name('home');
+
+//route search
+Route::get('/search',[SearchController::class,'search'])->name('search');
 
 //route Category
 Route::get('/category/{id}/{name?}',[CategoryController::class,'index'])->name('category.index');
