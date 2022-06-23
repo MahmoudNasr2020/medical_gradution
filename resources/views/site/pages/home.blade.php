@@ -234,6 +234,7 @@
     </section>
     <!-- End Categories Area -->
 
+    @if($companies->count() > 0)
     <!-- Start Companies Area -->
     <section class="categories-area pb-40">
         <div class="container">
@@ -255,6 +256,7 @@
         </div>
     </section>
     <!-- End Companies Area -->
+    @endif
     @include('site.pages.product.modal')
 @endsection
 

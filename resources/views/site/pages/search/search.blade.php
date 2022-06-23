@@ -103,7 +103,7 @@
                 </div>
                 @else
                 <div class="col-lg-12">
-                    لا توجد بيانات
+                   <h2 style="text-align: center">لا توجد بيانات</h2>
                 </div>
                 @endif
             </div>
