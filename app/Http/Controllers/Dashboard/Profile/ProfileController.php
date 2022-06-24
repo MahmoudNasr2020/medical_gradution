@@ -16,7 +16,7 @@ class ProfileController extends Controller
     {
         $admin = Admin::findOrFail($id);
         $data = $request->all();
-        if($request->has('password'))
+        if($request->filled('password'))
         {
             $data['password'] = Hash::make($request->password);
         }

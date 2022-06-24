@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:عرض-المنتج',   ['only' => ['index','show']]);
+        $this->middleware('permission:حذف-المنتج',   ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $products = Product::with('category:id,category_name')->get();

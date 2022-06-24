@@ -29,7 +29,7 @@
                     الرصيد القابل للسحب
                 </h4>
                 <span><span dir="rtl" style=" font-size:25px;color: #1abc9c">
-                                {{ $total_price }} جنيه مصري
+                                {{ $total_price - ($total_price * (settings()->commission / 100)) }} جنيه مصري
                             </span></span>
             </div>
 

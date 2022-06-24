@@ -18,6 +18,7 @@ class AdminRequest extends FormRequest
             'name'          => ['required','string'],
             'email'         => ['required','unique:admins,email'],
             'password'  =>     ['required','confirmed'],
+            'roles'  =>     ['required'],
             'image'       => ['nullable','image'],
         ];
     }
@@ -32,6 +33,7 @@ class AdminRequest extends FormRequest
             'password.required'=>   'كلمة السر مطلوبة',
             'password.confirmed'=>   'كلمة السر غير متطابقة',
             'image.image'=>   'الصورة غير صالحة',
+            'roles.required'=>   'الدور مطلوب',
         ];
     }
 }

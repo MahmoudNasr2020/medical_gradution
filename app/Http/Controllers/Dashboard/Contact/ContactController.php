@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:اتصل-بنا',   ['only' => ['show']]);
+    }
+
     public function show($id)
     {
         $data = Contact::findOrFail($id);

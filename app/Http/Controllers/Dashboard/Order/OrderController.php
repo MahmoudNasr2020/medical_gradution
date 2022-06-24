@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:عرض-الطلب',   ['only' => ['show']]);
+    }
     public function index()
     {
         $orders = Order::get();

@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('permission:عرض-القسم',   ['only' => ['index','show']]);
+        $this->middleware('permission:اضافة-القسم', ['only' => ['create','store']]);
+        $this->middleware('permission:تعديل-القسم', ['only' => ['edit','update']]);
+        $this->middleware('permission:حذف-القسم',   ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $categories = Category::all();

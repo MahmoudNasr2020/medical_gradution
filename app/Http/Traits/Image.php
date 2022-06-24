@@ -15,6 +15,7 @@ trait Image
         $image_name = time().$image->hashName();
         $image->storeAs($folder,$image_name);
         return asset('images/'.$folder .'/'.$image_name);
+        //return asset('medical/public/images/'.$folder .'/'.$image_name);
     }
 
    /* public function deleteImage($path)

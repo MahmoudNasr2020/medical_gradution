@@ -11,11 +11,22 @@ use App\Http\Traits\Image;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
     use Image;
+
+   public function __construct()
+    {
+        $this->middleware('permission:عرض-المسؤول',   ['only' => ['index','show']]);
+        $this->middleware('permission:اضافة-المسؤول', ['only' => ['create','store']]);
+        $this->middleware('permission:تعديل-المسؤول', ['only' => ['edit','update']]);
+        $this->middleware('permission:حذف-المسؤول',   ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $admins = Admin::get();
@@ -24,7 +35,8 @@ class AdminController extends Controller
 
     public function create()
     {
-        return view('dashboard.pages.admin.create');
+        $roles = Role::pluck('name','name')->all();
+        return view('dashboard.pages.admin.create',compact('roles'));
     }
 
     public function store(AdminRequest $request)
@@ -41,7 +53,7 @@ class AdminController extends Controller
         $data['password'] = Hash::make($request->password);
         unset($data['_token']);
         $admin = Admin::create($data);
-
+        $admin->assignRole($request->input('roles'));
         if(!$admin)
         {
             return abort(404);
@@ -60,7 +72,9 @@ class AdminController extends Controller
     public function edit($id)
     {
         $data = Admin::findOrFail($id);
-        return view('dashboard.pages.admin.edit',compact('data'));
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $data->roles->pluck('name','name')->all();
+        return view('dashboard.pages.admin.edit',compact('data','roles','userRole'));
     }
 
     public function update(UpdateAdminRequest $request, $id)
@@ -86,6 +100,9 @@ class AdminController extends Controller
         }
         unset($data['_token']);
         $admin->update($data);
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+
+        $admin->assignRole($request->input('roles'));
         flash('تم التعديل بنجاح','alert alert-success');
         return back();
     }

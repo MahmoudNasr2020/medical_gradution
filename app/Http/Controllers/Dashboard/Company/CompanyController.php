@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:عرض-الشركة',   ['only' => ['index','show']]);
+        $this->middleware('permission:منتجات-الشركة', ['only' => ['prodcuts','showProduct','destroyProduct']]);
+        $this->middleware('permission:حذف-الشركة',   ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         $companies = Company::get();

@@ -56,6 +56,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 p-3 row">
+                        <div class="col-12 col-lg-12 p-2">
+                            <div class="col-12">
+                               الدور
+                            </div>
+                            <div class="col-12 pt-3">
+                                {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="col-12 p-3 row">
                         <div class="col-12 col-lg-12 p-2">

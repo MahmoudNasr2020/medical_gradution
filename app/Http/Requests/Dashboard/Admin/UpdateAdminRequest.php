@@ -19,6 +19,7 @@ class UpdateAdminRequest extends FormRequest
             'email'         => ['required','unique:admins,email,'.$this->id],
             'password'      => ['nullable','confirmed'],
             'image'         => ['nullable','image'],
+             'roles'  =>     ['required'],
         ];
     }
 
@@ -31,6 +32,7 @@ class UpdateAdminRequest extends FormRequest
             'email.unique'=>     'البريد مسجل لدينا بالفعل',
             'password.confirmed'=>   'كلمة السر غير متطابقة',
             'image.image'=>   'الصورة غير صالحة',
+            'roles.required'=>   'الدور مطلوب',
         ];
     }
 }

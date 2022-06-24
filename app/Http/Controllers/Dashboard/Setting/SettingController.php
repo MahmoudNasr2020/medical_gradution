@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 class SettingController extends Controller
 {
     use Image;
+
+   public function __construct()
+    {
+        $this->middleware('permission:الاعدادات', ['only' => ['update']]);
+    }
     public function update(UpdateSetting $request)
     {
         $data=[];

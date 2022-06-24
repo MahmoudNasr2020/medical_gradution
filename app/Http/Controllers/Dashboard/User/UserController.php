@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:عرض-المستخدم', ['only' => ['index','show']]);
+        $this->middleware('permission:طلبات-المستخدم', ['only' => ['orders','status','invoice']]);
+        $this->middleware('permission:حذف-المستخدم', ['only' => ['destroy']]);
+    }
     public function index()
     {
         $users = User::get();

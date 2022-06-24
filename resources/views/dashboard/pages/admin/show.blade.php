@@ -25,6 +25,17 @@
                 <div class="col-12 p-0" >
                     البريد : {{ $data->email }}
                 </div>
+            </div>e
+
+            <div class="col-12 p-3" style="overflow:auto">
+                <div class="col-12 p-0" >
+                    الادوار :
+                    @if(!empty($data->getRoleNames()))
+                        @foreach($data->getRoleNames() as $v)
+                            <label>{{ $v }}</label>
+                        @endforeach
+                    @endif
+                </div>
             </div>
 
             <div class="col-12 p-3" style="overflow:auto">

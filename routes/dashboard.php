@@ -9,6 +9,7 @@ use App\Http\Controllers\Dashboard\Contact\ContactController;
 use App\Http\Controllers\Dashboard\Order\OrderController;
 use App\Http\Controllers\Dashboard\Product\ProductController;
 use App\Http\Controllers\Dashboard\Profile\ProfileController;
+use App\Http\Controllers\Dashboard\Role\RoleController;
 use App\Http\Controllers\Dashboard\Setting\SettingController;
 use App\Http\Controllers\Dashboard\User\UserController;
 use Illuminate\Support\Facades\Route;
@@ -63,7 +64,7 @@ Route::group(['middleware'=>'auth:admin'],function (){
     Route::post('settings/update', [SettingController::class,'update'])->name('setting.update');
 
     //contact
-    Route::view('contacts','dashboard.pages.contact.contact')->name('contact.index');
+    Route::view('contacts','dashboard.pages.contact.contact')->name('contact.index')->middleware('permission:اتصل-بنا');
     Route::get('company/show/{id}', [ContactController::class,'show'])->name('contact.show');
 
 
@@ -85,4 +86,7 @@ Route::group(['middleware'=>'auth:admin'],function (){
     Route::get('budget', [BudgetController::class,'budget'])->name('budget.index');
 
 
+
+    //roles
+    Route::resource('roles', RoleController::class);
 });
